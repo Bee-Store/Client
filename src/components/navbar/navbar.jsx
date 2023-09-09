@@ -1,5 +1,7 @@
 import React from "react";
-import "./navbar.css"
+import { navLinks } from "./../../helpers/navbar.helpers";
+import "./navbar.css";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -8,7 +10,14 @@ export default function Navbar() {
 
       {/* For Links */}
       <div>
-        <a href="#">Testing</a>
+        {navLinks &&
+          navLinks.map((link, index) => {
+            return (
+              <NavLink to={link.href} key={index}>
+                {link.tag}
+              </NavLink>
+            );
+          })}
       </div>
 
       {/* For navbuttons */}
