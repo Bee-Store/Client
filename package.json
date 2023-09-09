@@ -16,9 +16,11 @@
     "@mantine/hooks": "^6.0.20",
     "@mantine/notifications": "^6.0.20",
     "@mantine/nprogress": "^6.0.20",
+    "@reduxjs/toolkit": "^1.9.5",
     "embla-carousel-react": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
     "react-router": "^6.15.0",
     "react-router-dom": "^6.15.0"
   },
