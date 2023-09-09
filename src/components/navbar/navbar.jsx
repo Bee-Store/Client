@@ -9,7 +9,7 @@ export default function Navbar() {
       <span>Bee Store</span>
 
       {/* For Links */}
-      <div>
+      <div className="navLinks">
         {navLinks &&
           navLinks.map((link, index) => {
             return (
