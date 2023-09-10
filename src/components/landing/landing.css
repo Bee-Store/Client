@@ -1,5 +1,4 @@
 /* For topPartContainer */
-
 .topPartContainer {
   margin-top: 3em;
   display: flex;
@@ -8,7 +7,6 @@
   align-items: center;
   gap: 4rem;
 }
-
 /* For Top Part */
 .topPartContainer .topPartTop {
   display: flex;
@@ -30,17 +28,27 @@
   gap: 10px;
   width: 45%;
 }
-
 /* For Bottom Part */
 .topPartContainer .topPartBottom {
   display: flex;
   flex-direction: row;
   gap: 3rem;
 }
-
 .topPartContainer .topPartBottom div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+}
+
+
+/* For short_about component */
+.shortAboutWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3em 2em 3em;
+}
+.shortAboutWrapper .shortAboutimg{
+  display: flex;
+  align-items: first baseline;
 }

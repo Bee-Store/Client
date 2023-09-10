@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./components/navbar/navbar";
 import TopPart from "./components/landing/topPart";
 import "./App.css";
+import ShortAbout from "./components/landing/short_about/shortAbout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,6 +34,8 @@ function App() {
           Honey that you won’t find anywhere else
         </span>
       </div>
+
+      <ShortAbout />
     </div>
   );
 }
