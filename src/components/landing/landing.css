@@ -1,0 +1,46 @@
+/* For topPartContainer */
+
+.topPartContainer {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* For Top Part */
+.topPartContainer .topPartTop {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+.topPartContainer .topPartTop h2 {
+  font-family: Inter;
+  font-size: 60px;
+}
+.topPartContainer .topPartTop span {
+  font-size: 20px;
+}
+.topPartContainer .topPartTop button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  width: 45%;
+}
+
+/* For Bottom Part */
+.topPartContainer .topPartBottom {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.topPartContainer .topPartBottom div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
