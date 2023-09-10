@@ -10,6 +10,29 @@ function App() {
     <div>
       <Navbar />
       <TopPart />
+
+      <div
+        style={{
+          background: "#EBA937",
+          padding: "5em 0",
+          margin: "5em 0",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "Inter",
+            fontSize: "30px",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "normal",
+          }}
+        >
+          Honey that you won’t find anywhere else
+        </span>
+      </div>
     </div>
   );
 }

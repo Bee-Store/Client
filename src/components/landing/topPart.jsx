@@ -4,6 +4,8 @@ import Polygon2 from "./../../assets/Polygon2.svg";
 import Polygon3 from "./../../assets/Polygon3.svg";
 import Polygon4 from "./../../assets/Polygon4.svg";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 export default function TopPart() {
   return (
     <div className="topPartContainer">
@@ -32,7 +34,8 @@ export default function TopPart() {
       </div>
 
       <div className="topPartBottom">
-        <img src={Polygon2} alt="" width="400px" />
+        {/* <img src={Polygon2} alt="" width="400px" /> */}
+        <LazyLoadImage alt="Polygon2" effect="blur" src={Polygon2} />
 
         <div>
           <img src={Polygon3} alt="" width="200px" />
