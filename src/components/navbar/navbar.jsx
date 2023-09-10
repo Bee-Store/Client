@@ -10,7 +10,7 @@ export default function Navbar() {
   const title = opened ? "Close navigation" : "Open navigation";
   return (
     <div className="navContainer">
-      <h3>Bee Store</h3>
+      <h1>Bee Store</h1>
       <Burger
       className="burger"
         opened={opened}
