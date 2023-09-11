@@ -41,14 +41,14 @@
   gap: 2rem;
 }
 
-
 /* For short_about component */
-.shortAboutWrapper{
+.shortAboutWrapper {
   display: flex;
   justify-content: space-between;
-  margin: 0 3em 2em 3em;
+  margin: 2em 15em;
 }
-.shortAboutWrapper .shortAboutimg{
+.shortAboutWrapper .shortAboutimg {
   display: flex;
   align-items: first baseline;
+  margin-bottom: 2rem;
 }
