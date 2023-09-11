@@ -2,6 +2,7 @@ import React from "react";
 import "./../landing.css";
 import raw_honey from "./../../../assets/landing/raw_honey.png";
 import bee from "./../../../assets/landing/bee.svg";
+import { short_info } from "../../../helpers/shortAbout.helper";
 
 export default function ShortAbout() {
   return (
@@ -84,6 +85,29 @@ export default function ShortAbout() {
                 />
               </svg>
             </button>
+
+            <div
+              style={{
+                display: "flex",
+              
+              }}
+            >
+              {short_info &&
+                short_info.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      <span>{item.percent}</span>
+                      <hr
+                        style={{
+                          width: "40px",
+                          color: "#EBA937",
+                        }}
+                      />
+                      <span>{item.text}</span>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         </div>
       </div>
