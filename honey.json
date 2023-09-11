@@ -1,0 +1,26 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Raw Honey",
+        "price": 10.99,
+        "description": "Pure, unfiltered and unpasteurized sweet goodness straight from the hive.",
+        "image": "https://images.unsplash.com/photo-1605880980331-20a711b27338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGhvbmV5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+      },
+      {
+        "id": 2,
+        "name": "Manuka Honey",
+        "price": 35.99,
+        "description": "A unique honey with antibacterial qualities.",
+        "image": "https://images.unsplash.com/photo-1601592149903-210683803e31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fGhvbmV5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+      },
+      {
+        "id": 3,
+        "name": "Clover Honey",
+        "price": 9.99,
+        "description": "A popular, light flavor that's perfect for sweetening beverages.",
+        "image": "https://images.unsplash.com/photo-1631447661435-b86ae5ecd564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGhvbmV5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+      }
+    ]
+  }
+  
