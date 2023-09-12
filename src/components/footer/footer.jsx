@@ -30,7 +30,7 @@ export default function Footer() {
               flexDirection: "row",
             }}
           >
-            <input name type="email" placeholder="Your Email" />
+            <input type="email" placeholder="Your Email" />
             <img
               src={sendMail}
               alt="sendMail.svg"
@@ -71,7 +71,11 @@ export default function Footer() {
           >
             {navLinks &&
               navLinks.map((link, index) => {
-                return <NavLink to={link.href}>{link.tag}</NavLink>;
+                return (
+                  <NavLink to={link.href} key={index}>
+                    {link.tag}
+                  </NavLink>
+                );
               })}
           </div>
         </div>
