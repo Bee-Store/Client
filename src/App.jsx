@@ -1,18 +1,24 @@
 import { useState } from "react";
 import Navbar from "./components/navbar/navbar";
 import TopPart from "./components/landing/topPart";
-import "./App.css";
-import { Provider } from "react-redux";
-import store from "./Store/store";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
+import "./App.css";
+
+
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <Provider store={store}>
-    <Items />
-  </Provider>
+    <BrowserRouter>
+    <Navbar/>
+      <Routes>
+        <Route path="/" exact="true" element={<TopPart />} />
+        <Route path="/shop" exact="true" element={<Items />} />
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
