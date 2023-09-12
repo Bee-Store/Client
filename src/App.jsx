@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "./components/navbar/navbar";
 import Landing from "./Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Items from "./components/shop/Items";
+import Items from "./components/shop/Items";
 import "./App.css";
 
 export default function App() {

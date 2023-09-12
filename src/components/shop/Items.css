@@ -1,0 +1,120 @@
+/* variables css */
+
+  
+ 
+  img {
+    width: 100%;
+  }
+  
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  
+  
+  
+
+  
+  /* banner css*/
+  
+  /* section css */
+  /* main > section {
+    margin: 100px 0;
+  } */
+  
+  /* brand css */
+  
+  
+  /* popular collection css */
+  .popular-collection .popular-collection-title {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 70px;
+    margin: 30px 0;
+    text-align: center;
+  }
+  .popular-collection .popular-collection-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+  .popular-collection-items .item {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+  }
+  .popular-collection-items .item h2 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .popular-collection-items .item h2:hover{
+    color: #e02c6d;
+  
+  }
+  .popular-collection-items .item .price {
+    font-weight: 400;
+    font-size: 24px;
+    margin: 8px 0;
+  }
+  .popular-collection-items .item .rating {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .popular-collection-items .item .rating span i {
+    color: var(--rating);
+  }
+  .popular-collection-items .item .rating span:last-child {
+    margin-left: 8px;
+  }
+  .popular-collection-items .item .description {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.018em;
+    color: var(--dark);
+  }
+  
+  .see__more {
+    text-align: right;
+    margin: 50px 0;
+  }
+  .see__more a {
+    font-weight: bold;
+    color: var(--pink);
+  }
+  .see__more a:hover{
+    color: #000000;
+  }
+  
+  /* featured css*/
+ 
+  /* responsive area css */
+  /* for tablet */
+  @media only screen and (max-width: 992px) {
+    .popular-collection .popular-collection-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+  }
+  
+  /* for mobile */
+  @media only screen and (max-width: 567px) {
+  
+
+    header .banner-section,
+    .featured-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    .featured-section div:first-child{
+      order: 2;
+    }
+    .popular-collection .popular-collection-items {
+      grid-template-columns: 1fr;
+    }
+  }
