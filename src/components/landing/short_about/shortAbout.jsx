@@ -7,7 +7,7 @@ import { short_info } from "../../../helpers/shortAbout.helper";
 export default function ShortAbout() {
   return (
     <div className="shortAboutWrapper">
-      <img src={raw_honey} alt="raw_honey" width="200" className="firstImg"/>
+      <img src={raw_honey} alt="raw_honey" className="firstImg"/>
       <div>
         <div className="shortAboutimg">
           <img src={bee} alt="bee" className="secondImg"/>
