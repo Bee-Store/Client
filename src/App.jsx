@@ -13,7 +13,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" exact="true" element={<Landing />} />
-        {/* <Route path="/shop" exact="true" element={<Items />} /> */}
+        <Route path="/shop" exact="true" element={<Items />} />
       </Routes>
     </BrowserRouter>
   );
