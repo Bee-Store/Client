@@ -84,7 +84,7 @@ export default function Footer() {
           <h3>lets chat</h3>
 
           <div>
-            <span>test@gmail.com</span>
+            <a href="mailto:kian99564@email.com">test@gmail.com</a>
           </div>
         </div>
       </div>
