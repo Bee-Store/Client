@@ -4,6 +4,7 @@ import TopPart from "./components/landing/topPart";
 import "./App.css";
 import ShortAbout from "./components/landing/short_about/shortAbout";
 import WhatWeDo from "./components/landing/WhatWeDo";
+import Footer from "./components/footer/footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,6 +39,7 @@ function App() {
 
       <ShortAbout />
       <WhatWeDo />
+      <Footer />
     </div>
   );
 }
