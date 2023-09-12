@@ -1,25 +1,20 @@
 import { useState } from "react";
 import Navbar from "./components/navbar/navbar";
-import TopPart from "./components/landing/topPart";
+import Landing from "./Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
 import "./App.css";
 
-
-
-function App() {
+export default function App() {
   const [count, setCount] = useState(0);
 
   return (
     <BrowserRouter>
-    <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/" exact="true" element={<TopPart />} />
+        <Route path="/" exact="true" element={<Landing />} />
         <Route path="/shop" exact="true" element={<Items />} />
       </Routes>
     </BrowserRouter>
-
   );
 }
-
-export default App;

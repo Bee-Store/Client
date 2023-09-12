@@ -1,8 +1,8 @@
 import React from "react";
 import "./landing.css";
-import Polygon2 from "./../../assets/Polygon2.svg";
-import Polygon3 from "./../../assets/Polygon3.svg";
-import Polygon4 from "./../../assets/Polygon4.svg";
+import Polygon2 from "./../../assets/landing/Polygon2.svg";
+import Polygon3 from "./../../assets/landing/Polygon3.svg";
+import Polygon4 from "./../../assets/landing/Polygon4.svg";
 
 export default function TopPart() {
   return (
