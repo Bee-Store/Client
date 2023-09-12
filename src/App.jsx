@@ -10,7 +10,6 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" exact="true" element={<Landing />} />
         <Route path="/shop" exact="true" element={<Items />} />

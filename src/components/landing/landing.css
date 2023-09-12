@@ -44,8 +44,15 @@
 /* For short_about component */
 .shortAboutWrapper {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  margin: 2em 15em;
+  margin: 2em 10em;
+}
+.firstImg {
+  width: 35em;
+}
+.secondImg{
+  width: 100px;
 }
 .shortAboutWrapper .shortAboutimg {
   display: flex;
