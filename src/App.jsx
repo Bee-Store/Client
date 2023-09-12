@@ -1,43 +1,20 @@
 import { useState } from "react";
 import Navbar from "./components/navbar/navbar";
-import TopPart from "./components/landing/topPart";
+import Landing from "./Landing";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Items from "./components/shop/Items";
 import "./App.css";
-import ShortAbout from "./components/landing/short_about/shortAbout";
 
-function App() {
+export default function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
-      <TopPart />
-
-      <div
-        style={{
-          background: "#EBA937",
-          padding: "5em 0",
-          margin: "5em 0",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "Inter",
-            fontSize: "30px",
-            fontStyle: "normal",
-            fontWeight: "400",
-            lineHeight: "normal",
-          }}
-        >
-          Honey that you won’t find anywhere else
-        </span>
-      </div>
-
-      <ShortAbout />
-    </div>
+      <Routes>
+        <Route path="/" exact="true" element={<Landing />} />
+        {/* <Route path="/shop" exact="true" element={<Items />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

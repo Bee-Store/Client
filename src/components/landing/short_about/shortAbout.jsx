@@ -88,19 +88,27 @@ export default function ShortAbout() {
 
             <div
               style={{
-                display: "flex",
-              
+                display: "grid",
+                gap: "1",
+                gridTemplateColumns: "repeat(2, 1fr)",
               }}
             >
               {short_info &&
                 short_info.map((item, index) => {
                   return (
-                    <div key={index}>
+                    <div
+                      key={index}
+                      style={{
+                        marginTop: "23px",
+                      }}
+                    >
                       <span>{item.percent}</span>
                       <hr
                         style={{
                           width: "40px",
                           color: "#EBA937",
+                          borderColor: "#EBA937",
+                          backgroundColor: "#EBA937",
                         }}
                       />
                       <span>{item.text}</span>
