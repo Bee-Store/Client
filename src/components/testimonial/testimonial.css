@@ -12,7 +12,7 @@
   width: 70px !important;
   display: flex;
   position: absolute !important;
-  margin: -2.5em 0 2em 8em;
+  margin: -2.5em 0 2em 7.5em;
   z-index: 1;
 }
 .card {

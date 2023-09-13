@@ -14,8 +14,11 @@ export default function Testimonial() {
               <div className="card">
                 <span>{card.message}</span>
 
-                <div >
-                  <span>{card.name}</span>
+                <div>
+                  <span>
+                    {" "}
+                    <strong>{card.name}</strong>
+                  </span>
                   <span>{card.career}</span>
                 </div>
               </div>
