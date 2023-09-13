@@ -82,6 +82,10 @@ export default function Footer() {
 
         <div>
           <h3>Terms & Condition</h3>
+
+          <div>
+            <a href="#">Privacy Policy</a>
+          </div>
         </div>
 
         <div>
