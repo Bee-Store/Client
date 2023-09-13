@@ -7,7 +7,7 @@ import {
   Container,
   Title,
 } from "@mantine/core";
-import image from "./../../../assets/landing/faq.svg";
+import faq from "./../../../assets/landing/faq.svg";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -41,7 +41,7 @@ export default function Faq() {
       <Container size="lg">
         <Grid id="faq-grid" gutter={50}>
           <Col span={12} md={6}>
-            <Image src={image.src} alt="Frequently Asked Questions" />
+            <Image src={faq} alt="Frequently Asked Questions" />
           </Col>
           <Col span={12} md={6}>
             <Title order={2} ta="left" className={classes.title}>
