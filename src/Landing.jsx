@@ -3,6 +3,11 @@ import Navbar from "./components/navbar/navbar";
 import TopPart from "./components/landing/topPart";
 import "./App.css";
 import ShortAbout from "./components/landing/short_about/shortAbout";
+import WhatWeDo from "./components/landing/WhatWeDo";
+import Footer from "./components/footer/footer";
+import Faq from "./components/landing/faq/Faq";
+import Testimonial from "./components/testimonial/Testimonial";
+import Health from "./components/landing/health/Health";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -36,6 +41,11 @@ function App() {
       </div>
 
       <ShortAbout />
+      <WhatWeDo />
+      <Health />
+      <Testimonial />
+      <Faq />
+      <Footer />
     </div>
   );
 }
