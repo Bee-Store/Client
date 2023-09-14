@@ -7,6 +7,7 @@ import WhatWeDo from "./components/landing/WhatWeDo";
 import Footer from "./components/footer/footer";
 import Faq from "./components/landing/faq/Faq";
 import Testimonial from "./components/testimonial/Testimonial";
+import Health from "./components/landing/health/Health";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -41,6 +42,7 @@ function App() {
 
       <ShortAbout />
       <WhatWeDo />
+      <Health />
       <Testimonial />
       <Faq />
       <Footer />
