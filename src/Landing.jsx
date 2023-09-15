@@ -8,6 +8,7 @@ import Footer from "./components/footer/footer";
 import Faq from "./components/landing/faq/Faq";
 import Testimonial from "./components/testimonial/Testimonial";
 import Health from "./components/landing/health/Health";
+import Card from "./components/card/Card";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,6 +44,27 @@ function App() {
       <ShortAbout />
       <WhatWeDo />
       <Health />
+
+      {/* Section for our products */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <span
+          style={{
+            color: "#EBA937",
+            fontSize: "50px",
+          }}
+        >
+          Our Products
+        </span>
+        <Card />
+      </div>
+
       <Testimonial />
       <Faq />
       <Footer />
