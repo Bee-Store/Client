@@ -19,6 +19,7 @@ function App() {
       <TopPart />
 
       <div
+      className="other"
         style={{
           background: "#EBA937",
           padding: "5em 0",

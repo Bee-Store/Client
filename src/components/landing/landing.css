@@ -59,3 +59,23 @@
   align-items: first baseline;
   margin-bottom: 2rem;
 }
+
+@media screen and (max-width: 400px) {
+  * {
+    overflow-x: hidden;
+  }
+
+  .shortAboutWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0;
+    padding: 1em 2em;
+  }
+  .shortAboutWrapper h3 {
+    font-size: 30px;
+  }
+  /* .shortAboutWrapper im */
+}

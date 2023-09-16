@@ -32,3 +32,23 @@ input::placeholder {
   gap: 3em;
   margin-top: 1em;
 }
+
+@media screen and (max-width: 400px) {
+  .footer{
+    padding: 3em 1em;
+  }
+  .email_storyset{
+    width: 250px !important;
+  }
+  .footer .upperFooter input::placeholder{
+    font-size: 16px;
+  }
+  .footer .upperFooter .subscribe{
+    font-size: 20px !important;
+  }
+
+  .lowerFooter{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+}

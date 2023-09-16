@@ -25,9 +25,19 @@
 }
 
 .card div {
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 400px) {
+  .testimonial{
+    padding: 20px;
+  }
+  .img{
+    width: 40px !important;
+    margin: 0;
+  }
 }
