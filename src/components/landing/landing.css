@@ -21,6 +21,7 @@
   font-size: 20px;
 }
 .topPartContainer .topPartTop button {
+  padding: 8px 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,5 +78,24 @@
   .shortAboutWrapper h3 {
     font-size: 30px;
   }
-  /* .shortAboutWrapper im */
+  
+
+  @media screen and (max-width: 400px) {
+    .topPartContainer{
+      display: flex;
+      flex-direction: column;
+      padding: 0 2em 1em 2em !important;
+      margin-top: 10px;
+    }
+    .topPartContainer .topPartTop h2{
+      font-size: 40px;
+    }
+    .topPartContainer .topPartTop span{
+      font-size: 18px;
+    }
+    .topPartContainer button{
+      width: 100% !important;
+      padding: 8px 4px !important;
+    }
+  }
 }

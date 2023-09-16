@@ -8,7 +8,7 @@ import Footer from "./components/footer/footer";
 import Faq from "./components/landing/faq/Faq";
 import Testimonial from "./components/testimonial/Testimonial";
 import Health from "./components/landing/health/Health";
-import Card from "./components/card/Card";
+import ProductCard from "./components/card/Card";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,7 +19,7 @@ function App() {
       <TopPart />
 
       <div
-      className="other"
+        className="other"
         style={{
           background: "#EBA937",
           padding: "5em 0",
@@ -63,7 +63,7 @@ function App() {
         >
           Our Products
         </span>
-        <Card />
+        <ProductCard />
       </div>
 
       <Testimonial />
