@@ -1,7 +1,9 @@
 .burger {
   display: none;
 }
-
+.navLinkResponsive {
+  display: none;
+}
 a {
   text-decoration: none;
   color: black;
@@ -69,5 +71,20 @@ button:hover,
   }
   .burger {
     display: block;
+  }
+
+  .navLinkResponsive {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999 !important;
+    position: absolute;
+    margin-top: 20em;
+    padding: 3em 0;
+    background-color: white;
+    gap: 10px;
+    width: 100%;
   }
 }
