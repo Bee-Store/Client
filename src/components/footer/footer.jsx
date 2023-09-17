@@ -17,6 +17,7 @@ export default function Footer() {
           }}
         >
           <span
+          className="subscribe"
             style={{
               fontSize: "35px",
               marginBottom: "13px",
@@ -45,6 +46,7 @@ export default function Footer() {
         <img
           src={Email}
           alt="Email.png"
+          className="email_storyset"
           style={{
             width: "450px",
           }}
