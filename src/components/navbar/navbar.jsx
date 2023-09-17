@@ -1,33 +1,98 @@
 import React, { useState } from "react";
+import {
+  createStyles,
+  Header,
+  Menu,
+  Group,
+  Center,
+  Burger,
+  Container,
+  rem,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { navLinks } from "./../../helpers/navbar.helpers";
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
-import { Burger } from "@mantine/core";
 
+const useStyles = createStyles((theme) => ({
+  header: {
+    backgroundColor: theme.fn.variant({
+      variant: "filled",
+      color: theme.primaryColor,
+    }).background,
+    borderBottom: 0,
+  },
+
+  inner: {
+    height: rem(56),
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  links: {
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
+    },
+  },
+
+  burger: {
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
+    },
+  },
+
+  link: {
+    display: "block",
+    lineHeight: 1,
+    padding: `${rem(8)} ${rem(12)}`,
+    borderRadius: theme.radius.sm,
+    textDecoration: "none",
+    color: theme.white,
+    fontSize: theme.fontSizes.sm,
+    fontWeight: 500,
+
+    "&:hover": {
+      backgroundColor: "yellow",
+    },
+  },
+
+  linkLabel: {
+    marginRight: rem(5),
+  },
+}));
 
 export default function Navbar() {
-  const [opened, setOpened] = useState(false);
-  const title = opened ? "Close navigation" : "Open navigation";
+  const [open, setOpen] = useState(false);
+  const [opened, { toggle }] = useDisclosure(false);
+
+  const navData =
+    navLinks &&
+    navLinks.map((link, index) => {
+      return (
+        <NavLink to={link.href} key={index}>
+          {link.tag}
+        </NavLink>
+      );
+    });
+    
+  const openNav =
+    open === true ? (
+      <div className="navLinkResponsive hideNav">{navData}</div>
+    ) : null;
+
+  const title = open ? "Close navigation" : "Open navigation";
   return (
     <div className="navContainer">
       <h1>Bee Store</h1>
       <Burger
-      className="burger"
-        opened={opened}
-        onClick={() => setOpened((o) => !o)}
+        className="burger"
+        opened={open}
+        onClick={() => setOpen((o) => !o)}
         title={title}
       />
       {/* For Links */}
-      <div className="navLinks">
-        {navLinks &&
-          navLinks.map((link, index) => {
-            return (
-              <NavLink to={link.href} key={index}>
-                {link.tag}
-              </NavLink>
-            );
-          })}
-      </div>
+      <div className="navLinks">{navData}</div>
 
       {/* For navbuttons */}
       <div className="navBtn">
@@ -58,6 +123,8 @@ export default function Navbar() {
         </button>
         <button>Login</button>
       </div>
+
+      {openNav}
     </div>
   );
 }

@@ -33,11 +33,21 @@
 }
 
 @media screen and (max-width: 400px) {
-  .testimonial{
-    padding: 20px;
+  .testimonial {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2.4em 1em;
+    margin-top: 2em;
+    gap: 2em;
   }
-  .img{
-    width: 40px !important;
-    margin: 0;
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.2em 6px 12px 6px;
+  }
+  .img {
+    width: 50px !important;
+    margin: -1.4em 0 2em 4em;
   }
 }

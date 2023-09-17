@@ -11,8 +11,6 @@ import Health from "./components/landing/health/Health";
 import ProductCard from "./components/card/Card";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
       <Navbar />
