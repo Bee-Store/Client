@@ -74,16 +74,16 @@ button:hover,
   }
 
   .navLinkResponsive {
-    display: block;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 999 !important;
     position: absolute;
-    margin-top: 20em;
+    margin: 20em 0 0 -1em;
     padding: 3em 0;
-    background-color: white;
+    color: #fff;
+    background-color: #eba937;
     gap: 10px;
     width: 100%;
   }
