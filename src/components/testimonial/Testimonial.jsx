@@ -9,7 +9,7 @@ export default function Testimonial() {
         cardDetails.map((card, index) => {
           return (
             <div key={index}>
-              <img src={card.img} alt="" className="img" />
+              <img src={card.img} alt={card.img} className="img" />
 
               <div className="card">
                 <span>{card.message}</span>
