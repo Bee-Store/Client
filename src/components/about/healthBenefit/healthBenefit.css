@@ -1,0 +1,24 @@
+.healthBenefit {
+  background-image: url("./../../../assets/about/doctor.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 75vh;
+  margin-top: 8.3em !important;
+}
+.healthBenefit div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 28em;
+  gap: 20px;
+}
+
+.healthBenefit div span{
+    font-size: 40px;
+}
+.healthBenefit div button{
+    font-size: 20px;
+}
