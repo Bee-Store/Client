@@ -68,7 +68,7 @@ export default function AboutUs() {
             <div>
               <h5>Here are the steps we take to process honey</h5>
 
-              <ol type="a">
+              <ol start="1">
                 <li>Coffee</li>
                 <li>Tea</li>
                 <li>Milk</li>
