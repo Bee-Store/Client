@@ -55,8 +55,27 @@ export default function AboutUs() {
         </div>
 
         <div>
-          <img src={img2} alt="" />
-          <div></div>
+          <span></span>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "20px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <h5>Here are the steps we take to process honey</h5>
+
+              <ol type="a">
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Milk</li>
+              </ol>
+            </div>
+            <img src={img2} alt="" />
+          </div>
         </div>
 
         <div>
@@ -73,9 +92,9 @@ export default function AboutUs() {
             <img src={img3} alt="" />
             <span>
               We package honey meticulously, <br /> ensuring it is filtered,
-              sealed, and <br /> labeled with precision to maintain its <br />{" "}
+              sealed, and <br /> labeled with precision to maintain its <br />
               exceptional quality and appeal to our <br /> customers. Our
-              commitment to <br /> excellence is evident in every jar we <br />{" "}
+              commitment to <br /> excellence is evident in every jar we <br />
               produce.
             </span>
           </div>
