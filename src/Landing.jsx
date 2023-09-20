@@ -3,16 +3,21 @@ import Navbar from "./components/navbar/navbar";
 import TopPart from "./components/landing/topPart";
 import "./App.css";
 import ShortAbout from "./components/landing/short_about/shortAbout";
+import WhatWeDo from "./components/landing/WhatWeDo";
+import Footer from "./components/footer/footer";
+import Faq from "./components/landing/faq/Faq";
+import Testimonial from "./components/testimonial/Testimonial";
+import Health from "./components/landing/health/Health";
+import ProductCard from "./components/card/Card";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
       <Navbar />
       <TopPart />
 
       <div
+        className="other"
         style={{
           background: "#EBA937",
           padding: "5em 0",
@@ -36,6 +41,32 @@ function App() {
       </div>
 
       <ShortAbout />
+      <WhatWeDo />
+      <Health />
+
+      {/* Section for our products */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <span
+          style={{
+            color: "#EBA937",
+            fontSize: "50px",
+          }}
+        >
+          Our Products
+        </span>
+        <ProductCard />
+      </div>
+
+      <Testimonial />
+      <Faq />
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,13 @@
+.howWeGet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4em 0;
+}
+.howWeGet img{
+    width: 700px;
+}
+.howWeGet span{
+    font-size: 24px;
+}

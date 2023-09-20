@@ -3,8 +3,10 @@ import "./landing.css";
 import Polygon2 from "./../../assets/landing/Polygon2.svg";
 import Polygon3 from "./../../assets/landing/Polygon3.svg";
 import Polygon4 from "./../../assets/landing/Polygon4.svg";
+import { useNavigate } from "react-router";
 
 export default function TopPart() {
+  const navigate = useNavigate();
   return (
     <div className="topPartContainer">
       <div className="topPartTop">
@@ -14,7 +16,11 @@ export default function TopPart() {
           honey,
           <br />a golden masterpiece crafted by bees and blossoms.
         </span>
-        <button>
+        <button
+          onClick={() => {
+            navigate("/shop");
+          }}
+        >
           Our Products{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
