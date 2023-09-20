@@ -3,6 +3,7 @@ import Navbar from "./components/navbar/navbar";
 import Landing from "./Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
+
 import "./App.css";
 
 export default function App() {
@@ -10,9 +11,11 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    
       <Routes>
-        <Route path="/" exact="true" element={<Landing />} />
+       
         <Route path="/shop" exact="true" element={<Items />} />
+        <Route path="/" exact="true" element={<Landing />} />
       </Routes>
     </BrowserRouter>
   );
