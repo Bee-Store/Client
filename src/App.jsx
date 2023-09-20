@@ -1,10 +1,10 @@
-import { useState } from "react";
-import Navbar from "./components/navbar/navbar";
-import Landing from "./Landing";
+import React, { useState, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
 import "./App.css";
-import AboutUs from "./pages/AboutUs";
+
+const Landing = lazy(() => import("./Landing"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -12,8 +12,23 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact="true" element={<Landing />} />
-        <Route path="/about-us" element={<AboutUs />} />
+        <Route
+          path="/"
+          exact="true"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <Landing />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="/about-us"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <AboutUs />
+            </React.Suspense>
+          }
+        />
         <Route path="/shop" exact="true" element={<Items />} />
       </Routes>
     </BrowserRouter>
