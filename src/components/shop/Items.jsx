@@ -19,21 +19,24 @@ const Items = () => {
       {products.map(products => (
           
           <div class="item">
-          <img src={products.image} alt="" />
-          <h2>{products.name}</h2>
-          <p class="price">${products.price}</p>
+          <img src={products.image} alt="Raw honey" />
+         
+          <span className='prod-desc'> <h2>{products.name}</h2>
+          <p class="price">${products.price}</p>           
+          </span>
+         
           <p class="rating">
-            <span>
+            {/* <span>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star-half-alt"></i>
-            </span>
-            <span>{products.price}</span>
+            </span> */}
+            {/* <span>{products.price}</span> */}
           </p>
           <p class="description">
-            Worldwide shipping available! Buyer's protection possible!
+            Add to cart
           </p>
         </div>
         
