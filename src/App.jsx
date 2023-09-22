@@ -1,6 +1,8 @@
 import React, { useState, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
+import Cart from "./components/Cart/Cart";
+
 import "./App.css";
 
 const Contact = lazy(() => import("./pages/contact/Contact"));
@@ -12,6 +14,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    
       <Routes>
         <Route
           path="/"
@@ -32,6 +35,7 @@ export default function App() {
         />
         <Route path="/shop" exact="true" element={<Items />} />
 
+
         <Route
         path="/contact-us"
           element={
@@ -40,6 +44,8 @@ export default function App() {
             </React.Suspense>
           }
         />
+        <Route path="/cart" exact="true" element={<Cart />} />
+
       </Routes>
     </BrowserRouter>
   );

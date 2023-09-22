@@ -52,6 +52,7 @@
 .last-part .shared-part div{
   margin-top: 2em;
 }
+
 @media screen and (max-width: 400px) {
   .other {
     padding: 60px 0 !important;
