@@ -1,13 +1,27 @@
 .howWeGet {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em 0;
+  gap: 6rem;
 }
-.howWeGet img{
-    width: 700px;
+.howWeGet img {
+  width: 600px;
 }
-.howWeGet span{
-    font-size: 24px;
+.howWeGet span {
+  font-size: 20px;
+}
+.howWeGet .same {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:1rem 0;
 }
