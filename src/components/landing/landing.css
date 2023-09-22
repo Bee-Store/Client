@@ -46,7 +46,7 @@
 .shortAboutWrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around !important;
   margin: 2em 10em;
 }
 .firstImg {

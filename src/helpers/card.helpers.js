@@ -35,3 +35,29 @@ export const cardDetails = [
     career: "Product Manager",
   },
 ];
+
+export const product = [
+  {
+    img: "https://www.gorawhoney.com/wp-content/uploads/2017/12/Baby-Bee-12oz-StraightPic-FINAL-400px-1.jpg",
+    name: "Baby Bee",
+    info: "Only ksh. 700 for 1kg",
+  },
+
+  {
+    img: "https://www.gorawhoney.com/wp-content/uploads/2017/12/Baby-Bee-12oz-StraightPic-FINAL-400px-1.jpg",
+    name: "Baby Bee",
+    info: "Only ksh. 700 for 1kg",
+  },
+
+  {
+    img: "https://www.gorawhoney.com/wp-content/uploads/2017/12/Baby-Bee-12oz-StraightPic-FINAL-400px-1.jpg",
+    name: "Baby Bee",
+    info: "Only ksh. 700 for 1kg",
+  },
+  
+  {
+    img: "https://www.gorawhoney.com/wp-content/uploads/2017/12/Baby-Bee-12oz-StraightPic-FINAL-400px-1.jpg",
+    name: "Baby Bee",
+    info: "Only ksh. 700 for 1kg",
+  },
+];

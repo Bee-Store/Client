@@ -1,5 +1,58 @@
+.wrap-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+  margin: 5em 0;
+}
+.wrap-up span {
+  font-size: 25px;
+}
+.wrap-up button {
+  font-size: 20px;
+  padding: 0.6em 1.5em;
+  width: 100%;
+}
+.wrap-up div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.wrap-up img{
+  width: 500px;
+  border-radius: 15px;
+}
+
+.last-part img{
+  width: 500px;
+  border-radius: 15px;
+} 
+.last-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8em;
+  margin: 2em 0;
+}
+.last-part .shared-part {
+  display: flex;
+  gap: 3rem;
+}
+.last-part .shared-part h3 {
+  font-size: 28px;
+}
+.last-part .shared-part span{
+  font-size: 23px;
+}
+
+.last-part .shared-part div{
+  margin-top: 2em;
+}
 @media screen and (max-width: 400px) {
-  
   .other {
     padding: 60px 0 !important;
   }

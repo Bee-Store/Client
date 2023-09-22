@@ -33,7 +33,7 @@ export default function App() {
         <Route path="/shop" exact="true" element={<Items />} />
 
         <Route
-        path="/contact"
+        path="/contact-us"
           element={
             <React.Suspense fallback={<>...</>}>
               <Contact />
