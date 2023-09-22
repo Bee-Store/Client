@@ -1,6 +1,6 @@
 /* For topPartContainer */
 .topPartContainer {
-  margin-top: 8em;
+  margin-top: 16em;
   display: flex;
   flex-direction: row;
   justify-content: center;

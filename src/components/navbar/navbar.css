@@ -34,9 +34,33 @@ button:hover,
   margin: 0 0 0 10px;
 }
 
-.navContainer {
-  position: fixed;
+.top-wrapper div,
+.top-wrapper div > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.top-wrapper img {
+  width: 25px;
+}
+
+.top-wrapper {
   z-index: 999;
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  padding: 2em 0;
+  justify-content: space-evenly;
+  gap: 33em;
+}
+.navContainer {
+  z-index: 999;
+  position: fixed;
   background-color: white;
   width: 100vw;
   display: flex;
@@ -45,6 +69,7 @@ button:hover,
   align-items: center;
   padding: 2em 0;
   gap: 3rem;
+  margin-top: 4em;
 }
 
 .navLinks {
