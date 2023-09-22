@@ -67,7 +67,11 @@ export default function AboutUs() {
               >
                 <span>Our honey is harvested in these areas:-</span>
 
-                <div>
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, auto)",
+                  gap: "10px"
+                  }}>
                   <span>Meru</span>
                   <span>Tharaka Nithi</span>
                   <span>Baringo</span>

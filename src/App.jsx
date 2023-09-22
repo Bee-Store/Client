@@ -5,6 +5,7 @@ import Cart from "./components/Cart/Cart";
 
 import "./App.css";
 
+const Contact = lazy(() => import("./pages/contact/Contact"));
 const Landing = lazy(() => import("./Landing"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 
@@ -33,7 +34,18 @@ export default function App() {
           }
         />
         <Route path="/shop" exact="true" element={<Items />} />
+
+
+        <Route
+        path="/contact-us"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <Contact />
+            </React.Suspense>
+          }
+        />
         <Route path="/cart" exact="true" element={<Cart />} />
+
       </Routes>
     </BrowserRouter>
   );
