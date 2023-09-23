@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import {
+  createStyles,
+  Header,
+  Menu,
+  Group,
+  Center,
+  Burger,
+  Container,
+  rem,
+} from "@mantine/core";
+import SideBar from "../Sidebar/SideBar";
 import { NavLink } from "react-router-dom";
-import { Burger } from "@mantine/core";
+
 import { navLinks } from "./../../helpers/navbar.helpers";
 import "./navbar.css";
 import mail from "./../../assets/landing/mail.svg";
@@ -9,8 +20,13 @@ import locate from "./../../assets/landing/locate.svg";
 import clock from "./../../assets/landing/clock.svg";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
+
+  const [open, setOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(true);
+};
   const navData =
     navLinks &&
     navLinks.map((link, index) => {
@@ -100,7 +116,8 @@ export default function Navbar() {
               </defs>
             </svg>
 
-            <span>Cart</span>
+            <span onClick={toggle}>Cart</span>
+            <SideBar isOpen={isOpen} setIsOpen={setIsOpen} toggle={toggle} />
 
             <h3>3</h3>
           </button>

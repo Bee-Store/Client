@@ -1,0 +1,86 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: #f7f7f7;
+    z-index: 999;
+    transition: 0.3s ease-in-out;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.sidebar.open {
+    width: 500px;
+}
+.cart {
+    width: 500px;
+    display: flex;
+    gap: 1rem;
+}
+.cart img{
+    margin-left: 2rem;
+    width: 8rem;
+    height: 8rem;
+}
+.cart-buttons{
+    display: flex;
+    gap: 10rem;
+    align-items: center;
+}
+.price-quantity{
+    display: flex;
+    justify-content: space-between;
+}
+.bx-trash{
+    font-size: 25px;
+    color: red;
+}
+.cart-header{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 30px;
+}
+.cart{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    left: 5rem;
+    bottom: 1rem;
+}
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    gap: 15rem;
+}
+.cart-holder{
+    position: relative;
+    
+}
+.cart-summary button{
+padding: 1rem 0;
+border: 1px solid #eba937;
+border-radius: 1px;
+width: 100%;
+}
+.cart-summary :nth-last-child(2):hover{
+background-color: transparent;
+}
+.cart-summary button:nth-last-child(1){
+background-color: #eba937;
+}
+

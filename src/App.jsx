@@ -2,6 +2,7 @@ import React, { useState, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
 import Cart from "./components/Cart/Cart";
+import Details from "./components/Details/Details";
 
 import "./App.css";
 
@@ -11,10 +12,14 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 
 export default function App() {
   const [count, setCount] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <BrowserRouter>
-    
+
       <Routes>
         <Route
           path="/"
@@ -45,7 +50,6 @@ export default function App() {
           }
         />
         <Route path="/cart" exact="true" element={<Cart />} />
-
       </Routes>
     </BrowserRouter>
   );

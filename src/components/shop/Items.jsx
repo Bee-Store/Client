@@ -1,16 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../../features/product/productSlice';
+import Navbar from '../navbar/navbar';
 import "./Items.css";
 const Items = () => {
+  const [added, setAdded] = useState(false)
+  const [quantity, setQuantity] = useState(1)
   const products = useSelector(state => state.products);
-  console.log(products)
   const dispatch = useDispatch();
+
+  function addToCartHandler(){
+    setAdded(true)
+  }
+
+  function increaseQuantityHandler(){
+    setQuantity(quantity + 1)
+  }
+
+  function decreaseQuantityHandler(){
+    if (quantity > 1){
+      setQuantity(quantity - 1)
+    } else if(quantity === 1){
+      setAdded(false)
+    }
+  }
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
   return (
-
+<>
+<Navbar/>
     <section className='popular-collection'>
     <div className='container'>
      <div className="popular-collection-items">
@@ -26,18 +45,21 @@ const Items = () => {
           </span>
          
           <p class="rating">
-            {/* <span>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </span> */}
-            {/* <span>{products.price}</span> */}
+        
           </p>
-          <p class="description">
+          <span className='buy-add'>
+            {added ? ( <div className="quantity">
+            <button onClick={decreaseQuantityHandler}>-</button>
+            <p>{quantity}</p>
+            <button onClick={increaseQuantityHandler} >+</button>
+          </div>) : (<p class="description" onClick={addToCartHandler}>
             Add to cart
+          </p>)}
+       
+          <p>
+            Buy now
           </p>
+          </span>
         </div>
         
           
@@ -45,7 +67,7 @@ const Items = () => {
       </div>
       </div>
       </section>
-  
+      </>
   )
 }
 
