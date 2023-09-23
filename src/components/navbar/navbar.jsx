@@ -10,9 +10,14 @@ import {
   rem,
 } from "@mantine/core";
 import SideBar from "../Sidebar/SideBar";
+import { NavLink } from "react-router-dom";
+
 import { navLinks } from "./../../helpers/navbar.helpers";
 import "./navbar.css";
-import { NavLink } from "react-router-dom";
+import mail from "./../../assets/landing/mail.svg";
+import call from "./../../assets/landing/call.svg";
+import locate from "./../../assets/landing/locate.svg";
+import clock from "./../../assets/landing/clock.svg";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +44,44 @@ export default function Navbar() {
 
   const title = open ? "Close navigation" : "Open navigation";
   return (
-    <>
+    <div className="nav-wrapper">
+      <div className="top-wrapper">
+        <div>
+          <div>
+            <img src={locate} alt={locate} />
+            <span>
+              {" "}
+              <strong> Nairobi, Kenya</strong>
+            </span>
+          </div>
+
+          <div>
+            <img src={clock} alt={clock} />
+            <span>
+              {" "}
+              <strong> Open 24/7</strong>
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <img src={call} alt={call} />
+            <span>
+              {" "}
+              <strong> +254 793 020496</strong>
+            </span>
+          </div>
+
+          <div>
+            <img src={mail} alt={mail} />
+            <span>
+              {" "}
+              <strong>icikakennedy@gmail.com</strong>{" "}
+            </span>
+          </div>
+        </div>
+      </div>
       <div className="navContainer">
         <h1>Bee Store</h1>
         <Burger
@@ -83,6 +125,6 @@ export default function Navbar() {
         </div>
       </div>
       {openNav}
-    </>
+    </div>
   );
 }

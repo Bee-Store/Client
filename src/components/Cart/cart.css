@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+small{
+    font-weight: lighter;
+     
+}
+.paybill{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  text-align: center;
+}
+.button-display{
+    display: none;
+}

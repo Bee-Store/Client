@@ -1,14 +1,15 @@
-import { useState } from "react";
-
-import Landing from "./Landing";
+import React, { useState, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
 import Cart from "./components/Cart/Cart";
 import Details from "./components/Details/Details";
 
 import "./App.css";
-import AboutUs from "./pages/AboutUs";
-import Navbar from "./components/navbar/navbar";
+
+const Contact = lazy(() => import("./pages/contact/Contact"));
+const Landing = lazy(() => import("./Landing"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+
 export default function App() {
   const [count, setCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -20,11 +21,35 @@ export default function App() {
     <BrowserRouter>
 
       <Routes>
-        <Route path="/" exact="true" element={<Landing />} />
-        <Route path="/about-us" element={<AboutUs />} />
+        <Route
+          path="/"
+          exact="true"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <Landing />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="/about-us"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <AboutUs />
+            </React.Suspense>
+          }
+        />
         <Route path="/shop" exact="true" element={<Items />} />
+
+
+        <Route
+        path="/contact-us"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <Contact />
+            </React.Suspense>
+          }
+        />
         <Route path="/cart" exact="true" element={<Cart />} />
-        <Route path="/details" exact="true" element={<Details />} />
       </Routes>
     </BrowserRouter>
   );

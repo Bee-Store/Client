@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../navbar/navbar'
 import './cart.css'
 function Cart() {
   
   const [chosenMethod, setChosenMethod] = useState('Mpesa');
+const [btnClass, setBtnClass] = useState('')
+  useEffect(() => {
+        if (chosenMethod === 'Mpesa') {
+            setBtnClass('');
+        } else if (chosenMethod === 'Card') {
+            setBtnClass('button-display');
+        }
+    }, [chosenMethod]);
 
     const chooseMethod = (method) => {
         setChosenMethod(method);
@@ -12,9 +20,10 @@ function Cart() {
     <>
     <Navbar></Navbar>
     <div className=''>Cart
-      <div class="container mx-auto mt-10">
-    <div class="flex shadow-md my-10">
-      <div class="w-1/2 bg-white px-10 py-10">
+    <div className='container mx-auto px-4 sm:px-6 lg:px-8 mt-10'>
+        <div className='flex flex-col md:flex-row shadow-md my-10'>
+          <div className='w-full md:w-1/2 bg-white px-10 py-10'>
+
         <div class="flex justify-between border-b pb-8">
           <h1 class="font-semibold text-2xl">Order Summary</h1>
           <h2 class="font-semibold text-2xl">3 Items</h2>
@@ -52,34 +61,48 @@ function Cart() {
         </a>
       </div>
 
-      <div id="summary" class="w-1/2 px-8 py-10">
+      <div id='summary' className='w-full md:w-1/2 px-10 py-10'>
         <h1 class="font-semibold text-2xl border-b pb-8">Personal Information</h1>
         <div class="flex justify-between mt-10 mb-5">
           <span class="font-semibold text-sm uppercase">Items 3</span>
           <span class="font-semibold text-sm">590$</span>
         </div>
         <div>
-          <label class="font-medium inline-block mb-3 text-sm uppercase">Delivery</label>
-          <select class="block p-2 text-gray-600 w-full text-sm">
+          <label class="font-medium inline-block mb-3 text-sm uppercase">Delivery Details</label>
+          {/* <select class="block p-2 text-gray-600 w-full text-sm">
             <option>Standard Delivery - $10.00</option>
-          </select>
+          </select> */}
+        </div>
+        <div>
+          <label class=" mt-3 font-medium inline-block mb-3 text-sm uppercase">Location:</label>
+          <input type="text" name="" id="" className="block w-full p-2 text-yellow-600 border border-black rounded-md focus:outline-none focus:border-yellow-500" placeholder='Enter location'/>
+        </div>
+        <div>
+          <label class=" mt-3 font-medium inline-block mb-3 text-sm uppercase">Delivery Note:</label>
+          <textarea type="text" name="" id="" className="block w-full p-2 text-yellow-600 border border-black rounded-md focus:outline-none focus:border-yellow-500" placeholder='Notes about delivery'/>
+          <p className='bg-green-100 p-2 mt-5 rounded'>NB: To ensure the best experience with our honey products, please provide clear notes during your order. This could include specific delivery instructions based on your location, preferences for the size or type of honey product. For example, if you’re ordering our honey jars, you might specify your preferred color for the jar’s lid. Your detailed notes help us personalize and improve your honey shopping experience. Enjoy the sweetness!</p>
         </div>
         <div className='py-10'>
             <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase">Payment method</label>
             <div className="flex">
-                <div className={`w-1/2 payment-method flex items-center p-2 bg-white border-b border-gray-200 cursor-pointer ${chosenMethod === 'Mpesa' ? 'border-b-2 border-t-0 border-r-0 border-l-0 border-black' : ''}`} onClick={() => chooseMethod('Mpesa')}>
+                <div className={`w-1/2 payment-method flex items-center p-2 bg-white border-b border-black-200  cursor-pointer ${chosenMethod === 'Mpesa' ? 'border-b-2 border-t-0 border-r-0 border-l-0 border-black' : ''}`} onClick={() => chooseMethod('Mpesa')}>
                     <h1>Mpesa</h1>
                 </div>
-                <div className={`w-1/2 payment-method flex items-center p-2 bg-white border-b border-gray-200 cursor-pointer ${chosenMethod === 'Card' ? 'border-b-2 border-t-0 border-r-0 border-l-0 border-black' : ''}`} onClick={() => chooseMethod('Card')}>
+                <div className={`w-1/2 payment-method flex items-center p-2 bg-white border-b border-black-200 cursor-pointer ${chosenMethod === 'Card' ? 'border-b-2 border-t-0 border-r-0 border-l-0 border-black' : ''}`} onClick={() => chooseMethod('Card')}>
                     <h1>PayBill</h1>
                 </div>
             </div>
             {chosenMethod === 'Mpesa' && (
-              <><h1>Mpesa</h1></>
+              <small>Ensure your phone is near you. You will recieve a prompt on the number you provided during registration. Enter Mpesa pin to authorize the payment</small>
                 // Add your Mpesa related content here
             )}
             {chosenMethod === 'Card' && (
-              <><h1>Card</h1></>
+              <div className='paybill'>
+                <div>
+                <p>Paybill number : 123456</p>
+                <p>Account number: IcikaMax</p>
+                </div>
+              </div>
                 // Add your Card related content here
             )}
         </div>
@@ -89,7 +112,7 @@ function Cart() {
             <span>Total cost</span>
             <span>$600</span>
           </div>
-          <button class="bg-yellow-600 font-semibold hover:bg-yellow-500 py-3 text-sm text-white uppercase w-full">Purchase</button>
+          <button className={`bg-yellow-600 font-semibold hover:bg-yellow-500 py-3 text-sm text-white uppercase w-full ${btnClass}`}>Purchase</button>
         </div>
       </div>
 
