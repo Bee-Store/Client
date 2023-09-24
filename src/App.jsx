@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
 import Cart from "./components/Cart/Cart";
 import Details from "./components/Details/Details";
+import Auth from "./components/Auth/Auth";
 
 import "./App.css";
 
@@ -39,6 +40,7 @@ export default function App() {
           }
         />
         <Route path="/shop" exact="true" element={<Items />} />
+        <Route path="/auth" exact="true" element={<Auth />} />
 
 
         <Route
