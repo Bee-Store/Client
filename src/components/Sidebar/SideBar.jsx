@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './sidebar.css';
-function SideBar({ isOpen, toggle, setIsOpen })  {
+function SideBar({ isOpen, toggle, })  {
   const [added, setAdded] = useState(false)
   const [quantity, setQuantity] = useState(1)
   function handleOpen(){
-    setIsOpen(false)
+  
 
   }
   function addToCartHandler(){

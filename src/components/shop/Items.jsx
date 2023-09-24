@@ -30,7 +30,7 @@ const Items = () => {
   return (
 <>
 <Navbar/>
-    <section className='popular-collection'>
+    <div className='popular-collection'>
     <div className='container'>
      <div className="popular-collection-items">
       
@@ -66,7 +66,7 @@ const Items = () => {
       ))}
       </div>
       </div>
-      </section>
+      </div>
       </>
   )
 }

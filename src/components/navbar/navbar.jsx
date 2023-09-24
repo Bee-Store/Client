@@ -25,7 +25,7 @@ export default function Navbar() {
 
   const [open, setOpen] = useState(false);
   const toggle = () => {
-    setIsOpen(true);
+    setIsOpen(!open);
 };
   const navData =
     navLinks &&
@@ -117,7 +117,7 @@ export default function Navbar() {
             </svg>
 
             <span onClick={toggle}>Cart</span>
-            <SideBar isOpen={isOpen} setIsOpen={setIsOpen} toggle={toggle} />
+            <SideBar isOpen={isOpen}toggle={toggle} />
 
             <h3>3</h3>
           </button>

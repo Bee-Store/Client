@@ -12,7 +12,7 @@
 }
 
 .sidebar.open {
-    width: 500px;
+    width: 410px;
 }
 .cart {
     width: 500px;
@@ -59,7 +59,7 @@
     align-items: center;
     gap: 1rem;
     position: absolute;
-    left: 5rem;
+    left: 2rem;
     bottom: 1rem;
 }
 .cart-total{
