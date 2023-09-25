@@ -109,7 +109,7 @@ function App() {
           <img src={crystallised} alt="" />
         </div>
 
-        <div className="shared-part">
+        <div className="shared-part second-part">
           <img src={littlegirl} alt="" />
           <div>
             <h3>Sustainable Raw Honey</h3>

@@ -128,4 +128,18 @@
     font-size: 16px;
     padding: 0.5em 1em;
   }
+
+  /* Last-part */
+  .last-part .shared-part {
+    flex-direction: column;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+  .last-part .shared-part .second-part {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+  .last-part .shared-part span {
+    font-size: 16px !important;
+  }
 }
