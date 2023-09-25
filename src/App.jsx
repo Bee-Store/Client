@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
 import Cart from "./components/Cart/Cart";
 import Details from "./components/Details/Details";
-import Auth from "./components/Auth/Auth";
 
 import "./App.css";
 
+const Auth = lazy(() => import("./components/Auth/Auth"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const Landing = lazy(() => import("./Landing"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
@@ -20,7 +20,6 @@ export default function App() {
   };
   return (
     <BrowserRouter>
-
       <Routes>
         <Route
           path="/"
@@ -40,11 +39,19 @@ export default function App() {
           }
         />
         <Route path="/shop" exact="true" element={<Items />} />
-        <Route path="/auth" exact="true" element={<Auth />} />
-
 
         <Route
-        path="/contact-us"
+          path="/auth"
+          exact="true"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <Auth />
+            </React.Suspense>
+          }
+        />
+
+        <Route
+          path="/contact-us"
           element={
             <React.Suspense fallback={<>...</>}>
               <Contact />

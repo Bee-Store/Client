@@ -1,13 +1,18 @@
+import { lazy } from "react";
 import Navbar from "./components/navbar/navbar";
 import TopPart from "./components/landing/topPart";
 import "./App.css";
 import kidhoney from "./assets/landing/kidhoney.jpg";
 import littlegirl from "./assets/landing/littlegirl.jpg";
 import crystallised from "./assets/landing/crystallised.jpg";
+
 import raw from "./assets/landing/raw.jpg";
-import ShortAbout from "./components/landing/short_about/shortAbout";
-import WhatWeDo from "./components/landing/WhatWeDo";
-import Footer from "./components/footer/footer";
+// Components
+const ShortAbout = lazy(() =>
+  import("./components/landing/short_about/shortAbout")
+);
+const WhatWeDo = lazy(() => import("./components/landing/WhatWeDo"));
+const Footer = lazy(() => import("./components/footer/footer"));
 import Faq from "./components/landing/faq/Faq";
 import Testimonial from "./components/testimonial/Testimonial";
 import { product } from "./helpers/card.helpers";
@@ -37,7 +42,7 @@ function App() {
         </span>
 
         <div
-        className="product"
+          className="product"
           style={{
             display: "flex",
             flexDirection: "row",
