@@ -47,7 +47,6 @@ export default function AboutUs() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                marginTop: "-17em",
                 gap: "1rem",
               }}
             >
@@ -83,7 +82,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div>
+        <div className="second">
           <h1 className="header">Processing</h1>
 
           <div className="same">

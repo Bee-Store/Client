@@ -16,9 +16,26 @@
   gap: 20px;
 }
 
-.healthBenefit div span{
-    font-size: 40px;
+.healthBenefit div span {
+  font-size: 40px;
 }
-.healthBenefit div button{
-    font-size: 20px;
+.healthBenefit div button {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 400px) {
+  .healthBenefit {
+    height: 50vh;
+  }
+  .healthBenefit div {
+    padding-top: 17em;
+  }
+  .healthBenefit div span {
+    font-size: 26px;
+  }
+  .healthBenefit div button {
+    background-color: #eba937;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
 }

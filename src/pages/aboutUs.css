@@ -23,5 +23,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:1rem 0;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 400px) {
+  .howWeGet .same {
+    flex-direction: column;
+  }
+
+  .howWeGet .same span {
+    font-size: 16px;
+    padding: 5px 16px;
+  }
+  .howWeGet .same h2 {
+    font-weight: bold;
+    padding: 4px 10px;
+  }
+
+  .howWeGet .second {
+    display: flex;
+    flex-direction: column;
+  }
+  .howWeGet .second div {
+    flex-direction: column-reverse;
+  }
 }
