@@ -1,13 +1,18 @@
+import { lazy } from "react";
 import Navbar from "./components/navbar/navbar";
 import TopPart from "./components/landing/topPart";
 import "./App.css";
 import kidhoney from "./assets/landing/kidhoney.jpg";
 import littlegirl from "./assets/landing/littlegirl.jpg";
 import crystallised from "./assets/landing/crystallised.jpg";
+
 import raw from "./assets/landing/raw.jpg";
-import ShortAbout from "./components/landing/short_about/shortAbout";
-import WhatWeDo from "./components/landing/WhatWeDo";
-import Footer from "./components/footer/footer";
+// Components
+const ShortAbout = lazy(() =>
+  import("./components/landing/short_about/shortAbout")
+);
+const WhatWeDo = lazy(() => import("./components/landing/WhatWeDo"));
+const Footer = lazy(() => import("./components/footer/footer"));
 import Faq from "./components/landing/faq/Faq";
 import Testimonial from "./components/testimonial/Testimonial";
 import { product } from "./helpers/card.helpers";
@@ -18,43 +23,15 @@ function App() {
       <Navbar />
       <TopPart />
 
-      <div
-        className="other"
-        style={{
-          background: "#EBA937",
-          padding: "5em 0",
-          margin: "5em 0",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "Inter",
-            fontSize: "30px",
-            fontStyle: "normal",
-            fontWeight: "400",
-            lineHeight: "normal",
-          }}
-        >
-          Honey that you won’t find anywhere else
-        </span>
+      <div className="other">
+        <span>Honey that you won’t find anywhere else</span>
       </div>
 
       <ShortAbout />
       <WhatWeDo />
 
       {/* Section for our products */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "8px",
-        }}
-      >
+      <div className="products">
         <span
           style={{
             color: "#EBA937",
@@ -65,6 +42,7 @@ function App() {
         </span>
 
         <div
+          className="product"
           style={{
             display: "flex",
             flexDirection: "row",
@@ -104,7 +82,7 @@ function App() {
         </div>
       </div>
 
-      {/*  */}
+      {/* wrap-up */}
       <div className="wrap-up">
         <div>
           <img src={raw} alt="raw" />
@@ -136,7 +114,7 @@ function App() {
           <img src={crystallised} alt="" />
         </div>
 
-        <div className="shared-part">
+        <div className="shared-part second-part">
           <img src={littlegirl} alt="" />
           <div>
             <h3>Sustainable Raw Honey</h3>
