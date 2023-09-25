@@ -13,6 +13,7 @@ export default function AboutUs() {
       <Navbar />
       <HealthBenefit />
       <div
+      className="about-info"
         style={{
           backgroundColor: "#EBA937",
           padding: "2em",

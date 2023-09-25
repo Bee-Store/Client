@@ -27,6 +27,9 @@
 }
 
 @media screen and (max-width: 400px) {
+  .about-info {
+    font-size: 20px !important;
+  }
   .howWeGet .same {
     flex-direction: column;
   }
