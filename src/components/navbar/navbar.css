@@ -21,6 +21,9 @@ button,
   border: none;
   cursor: pointer;
 }
+.loginbtn{
+  padding: 6px 18px;
+}
 button:hover,
 .tbn:hover {
   background-color: #b87501;

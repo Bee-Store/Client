@@ -13,6 +13,7 @@ export default function AboutUs() {
       <Navbar />
       <HealthBenefit />
       <div
+      className="about-info"
         style={{
           backgroundColor: "#EBA937",
           padding: "2em",
@@ -47,7 +48,6 @@ export default function AboutUs() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                marginTop: "-17em",
                 gap: "1rem",
               }}
             >
@@ -83,7 +83,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div>
+        <div className="second">
           <h1 className="header">Processing</h1>
 
           <div className="same">
