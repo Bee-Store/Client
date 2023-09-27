@@ -5,6 +5,7 @@ import Cart from "./components/Cart/Cart";
 import Details from "./components/Details/Details";
 
 import "./App.css";
+import Team from "./pages/team/Team";
 
 const Auth = lazy(() => import("./components/Auth/Auth"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
@@ -55,6 +56,15 @@ export default function App() {
           element={
             <React.Suspense fallback={<>...</>}>
               <Contact />
+            </React.Suspense>
+          }
+        />
+
+        <Route
+          path="/team"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <Team />
             </React.Suspense>
           }
         />

@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import {
-  createStyles,
-  Header,
-  Menu,
-  Group,
-  Center,
-  Burger,
-  Container,
-  rem,
+  Burger
 } from "@mantine/core";
 import SideBar from "../Sidebar/SideBar";
 import { NavLink, useNavigate } from "react-router-dom";
