@@ -2,6 +2,23 @@
   margin-top: 14em;
   color: black !important;
 }
+
+.team-description{
+    display: flex;
+    flex-direction: column;
+    padding-left: 7em;
+    color: green;
+}
+.team-description span{
+    font-size: 18px;
+}
+.team-description h1{
+    font-size: 34px;
+}
+.team-description h3{
+    font-size: 25px;
+}
+
 .teaminfo .allTeam {
   display: flex;
   flex-direction: row;
@@ -14,4 +31,10 @@
 .teaminfo .allTeam img {
   border-radius: 10px;
   width: 300px;
+}
+
+.teaminfo .allTeam .member-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0 0 2em;
 }

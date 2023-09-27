@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import "./team.css";
+import Footer from "./../../components/footer/footer";
 import { team_members } from "../../helpers/team.helpers";
 
 export default function Team() {
@@ -10,7 +11,7 @@ export default function Team() {
 
       <div className="teaminfo">
         {/* Brief description */}
-        <div>
+        <div className="team-description">
           <span>The team</span>
           <h1>Meat our team of experts</h1>
           <h3>
@@ -28,8 +29,12 @@ export default function Team() {
                 <div key={index}>
                   <img src={member.image} alt={member.image} />
 
-                  <span>{member.name}</span>
-                  <span>{member.role}</span>
+                  <div className="member-info">
+                    <strong>
+                      <span>{member.name}</span>
+                    </strong>
+                    <span>{member.role}</span>
+                  </div>
                 </div>
               );
             })}
@@ -38,6 +43,8 @@ export default function Team() {
         {/* Open positions */}
         <div></div>
       </div>
+
+      <Footer />
     </div>
   );
 }
