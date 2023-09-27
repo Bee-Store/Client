@@ -1,0 +1,17 @@
+.teaminfo {
+  margin-top: 14em;
+  color: black !important;
+}
+.teaminfo .allTeam {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5em;
+  padding: 2em 4em;
+}
+.teaminfo .allTeam img {
+  border-radius: 10px;
+  width: 300px;
+}
