@@ -1,0 +1,26 @@
+.contact-wrapper {
+  margin-top: 14em;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Form.jsx */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.form-wrapper form div{
+    display: flex;
+    gap: 3em;
+}
+.form-wrapper form button {
+  background-color: #eba937;
+}
