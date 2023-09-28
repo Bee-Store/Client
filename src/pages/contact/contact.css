@@ -55,3 +55,39 @@ textarea {
 .message-wrapper .message-shared span:nth-last-child(1) {
   color: #eba937;
 }
+
+/* For mobile screens */
+@media screen and (max-width: 400px) {
+  * {
+    overflow-x: hidden;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  span {
+    font-size: 16px;
+  }
+  .contact-wrapper {
+    margin: 15em 1em 2em 1em !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .form-wrapper {
+    gap: 1em;
+  }
+  .form-wrapper form {
+    gap: 20px !important;
+    padding: 1rem;
+  }
+  .form-wrapper form input,
+  textarea {
+    padding: 4px 10px;
+  }
+  .form-wrapper form div {
+    gap: 0.5em;
+  }
+  .form-wrapper form button {
+    font-size: 16px;
+  }
+}
