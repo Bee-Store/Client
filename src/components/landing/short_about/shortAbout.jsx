@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./../landing.css";
 import raw_honey from "./../../../assets/landing/raw_honey.png";
 import bee from "./../../../assets/landing/bee.svg";
 import { short_info } from "../../../helpers/shortAbout.helper";
 
 export default function ShortAbout() {
+  const navigate = useNavigate();
   return (
     <div className="shortAboutWrapper">
       <img src={raw_honey} alt="raw_honey" className="firstImg" />
@@ -61,6 +63,7 @@ export default function ShortAbout() {
 
           <div>
             <button
+              onClick={() => navigate("/about-us")}
               style={{
                 display: "flex",
                 justifyContent: "center",
