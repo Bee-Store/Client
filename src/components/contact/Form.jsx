@@ -8,7 +8,7 @@ function Form() {
   };
   return (
     <div className="form-wrapper">
-      <h3>We've been expecting you</h3>
+      <h1>We've been expecting you</h1>
 
       <form onSubmit={submitForm}>
         <div>

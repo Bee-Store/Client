@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import "./contact.css";
 import Form from "../../components/contact/Form";
 import Message from "../../components/contact/Message";
+import Footer from "../../components/footer/footer";
 
 export default function Contact() {
   return (
@@ -13,6 +14,8 @@ export default function Contact() {
         <Message />
         <Form />
       </div>
+
+      <Footer />
     </div>
   );
 }
