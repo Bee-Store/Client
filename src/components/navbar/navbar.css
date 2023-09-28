@@ -4,6 +4,9 @@
 .navLinkResponsive {
   display: none;
 }
+.show-only{
+  display: none !important;
+}
 a {
   text-decoration: none;
   color: black;
@@ -121,4 +124,9 @@ button:hover,
     gap: 10px;
     width: 100vw;
   }
+  .show-only{
+  display: flex !important;
+  font-size: 18px !important;
+  padding: 8px 8px;
+}
 }
