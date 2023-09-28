@@ -92,7 +92,14 @@ export default function Navbar() {
         </div>
       </div>
       <div className="navContainer">
-        <h1>Bee Store</h1>
+        <NavLink
+          to={"/"}
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          Bee Store
+        </NavLink>
 
         <div
           style={{
