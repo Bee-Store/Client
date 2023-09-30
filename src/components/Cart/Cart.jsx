@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import Navbar from '../navbar/navbar'
+
 import './cart.css'
 function Cart() {
-  
+  const cart = useSelector(state => state.cart);
+  console.log(cart)
   const [chosenMethod, setChosenMethod] = useState('Mpesa');
 const [btnClass, setBtnClass] = useState('')
   useEffect(() => {
