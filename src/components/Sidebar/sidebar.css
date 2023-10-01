@@ -26,12 +26,18 @@
 }
 .cart-buttons{
     display: flex;
-    gap: 10rem;
+    gap: 5rem;
     align-items: center;
 }
 .price-quantity{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 8.5rem;
+}
+.prod-name{
+    padding-right:17rem;
+    font-size: large;
+    font-weight: bolder;
 }
 .bx-trash{
     font-size: 25px;

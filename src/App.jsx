@@ -2,7 +2,8 @@ import React, { useState, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Items from "./components/shop/Items";
 import Cart from "./components/Cart/Cart";
-import Details from "./components/Details/Details";
+import AdminProducts from "./components/Admin/AdminProd";
+
 
 import "./App.css";
 
@@ -39,6 +40,7 @@ export default function App() {
           }
         />
         <Route path="/shop" exact="true" element={<Items />} />
+        <Route path="/adminproduct" exact="true" element={<AdminProducts />} />
 
         <Route
           path="/auth"
