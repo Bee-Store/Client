@@ -3,6 +3,7 @@ import Navbar from "../navbar/navbar";
 import "./auth.css";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { notifications } from "@mantine/notifications";
 
 function Auth() {
   const [isActive, setIsActive] = useState(false);
@@ -32,7 +33,10 @@ function Auth() {
       .then((response) => {
         // Handle the response from the server
         console.log("Response:", response.data);
-
+        notifications.show({
+          title: "Account Created",
+          message: response.data.message,
+        });
         // if (response.data.data.access_token) {
         //   localStorage.setItem("access_token", response.data.data.access_token);
         //   navigate("/");
@@ -57,6 +61,10 @@ function Auth() {
         console.log("Response:", response.data);
 
         if (response.data.data.access_token) {
+          notifications.show({
+            title: "Login success",
+            message: response.data.message,
+          });
           localStorage.setItem("access_token", response.data.data.access_token);
           navigate("/");
         }
