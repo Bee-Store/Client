@@ -12,6 +12,26 @@ import clock from "./../../assets/landing/clock.svg";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const access_token = localStorage.getItem("access_token");
+  const LoginOrLogOut = !access_token ? (
+    <button
+      className="loginbtn"
+      onClick={() => {
+        navigate("/auth");
+      }}
+    >
+      Login
+    </button>
+  ) : (
+    <button
+      className="loginbtn"
+      onClick={() => {
+        navigate("/auth");
+      }}
+    >
+      Log Out
+    </button>
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   const [open, setOpen] = useState(false);
@@ -39,14 +59,7 @@ export default function Navbar() {
             alignItems: "center",
           }}
         >
-          <button
-            className="loginbtn"
-            onClick={() => {
-              navigate("/auth");
-            }}
-          >
-            Login
-          </button>
+          {LoginOrLogOut}
         </div>
       </div>
     ) : null;
@@ -171,14 +184,8 @@ export default function Navbar() {
 
             <h3>3</h3>
           </button>
-          <button
-            className="loginbtn"
-            onClick={() => {
-              navigate("/auth");
-            }}
-          >
-            Login
-          </button>
+
+          {LoginOrLogOut}
         </div>
       </div>
       {openNav}
