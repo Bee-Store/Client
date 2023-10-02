@@ -4,7 +4,8 @@ import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import Items from "./components/shop/Items";
 import Cart from "./components/Cart/Cart";
-import Details from "./components/Details/Details";
+import AdminProducts from "./components/Admin/AdminProd";
+
 
 import "./App.css";
 import Team from "./pages/team/Team";

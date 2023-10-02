@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector,useDispatch  } from 'react-redux';
+import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice';
+
+
 import Navbar from '../navbar/navbar'
+
 import './cart.css'
 function Cart() {
-  
+  const dispatch = useDispatch();
+  const totalAmount = useSelector(state => state.cart.totalAmount);
+  const cartState = useSelector(state => state.cart);
+  const cartData = cartState.items
+console.log(cartData)
   const [chosenMethod, setChosenMethod] = useState('Mpesa');
 const [btnClass, setBtnClass] = useState('')
   useEffect(() => {
@@ -35,22 +44,24 @@ const [btnClass, setBtnClass] = useState('')
           <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
         </div>
      
-
-        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-        <div class="flex w-2/5">
-            <div class="w-20">
-              <img class="h-24" src="https://images.unsplash.com/photo-1605880980331-20a711b27338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGhvbmV5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60" alt=""/>
-            </div>
-            <div class="flex flex-col justify-between ml-4 flex-grow">
-              <span class="font-bold text-sm">Manuka Honey</span>
-              <span class="text-green-500 text-xs">QTY:2</span>
-              <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs"><i className='bx bx-trash'  ></i></a>
-            </div>
+      { cartData.map((item, index)=>
+      <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" key={index}>
+      <div class="flex w-2/5">
+          <div class="w-20">
+            <img class="h-24" src="https://images.unsplash.com/photo-1605880980331-20a711b27338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGhvbmV5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60" alt=""/>
           </div>
-  
-        
-          <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
+          <div class="flex flex-col justify-between ml-4 flex-grow">
+            <span class="font-bold text-sm">{item.product.name}</span>
+            <span class="text-green-500 text-xs">{item.quantity}</span>
+            <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs"><i className='bx bx-trash'  onClick={()=>dispatch(removeFromCart(item))}></i></a>
+          </div>
         </div>
+
+      
+        <span class="text-center w-1/5 font-semibold text-sm">{item.product.price * item.quantity}</span>
+      </div>
+      )}
+        
 
       
 
@@ -64,8 +75,8 @@ const [btnClass, setBtnClass] = useState('')
       <div id='summary' className='w-full md:w-1/2 px-10 py-10'>
         <h1 class="font-semibold text-2xl border-b pb-8">Personal Information</h1>
         <div class="flex justify-between mt-10 mb-5">
-          <span class="font-semibold text-sm uppercase">Items 3</span>
-          <span class="font-semibold text-sm">590$</span>
+          <span class="font-semibold text-sm uppercase">Items {cartData.length}</span>
+          <span class="font-semibold text-sm">{Math.floor(totalAmount)}</span>
         </div>
         <div>
           <label class="font-medium inline-block mb-3 text-sm uppercase">Delivery Details</label>
@@ -110,7 +121,7 @@ const [btnClass, setBtnClass] = useState('')
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span>$600</span>
+            <span>{Math.floor(totalAmount)}</span>
           </div>
           <button className={`bg-yellow-600 font-semibold hover:bg-yellow-500 py-3 text-sm text-white uppercase w-full ${btnClass}`}>Purchase</button>
         </div>
