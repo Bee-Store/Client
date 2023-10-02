@@ -1,4 +1,4 @@
-button{
+button {
   background-color: #eba937;
 }
 
@@ -88,6 +88,9 @@ button{
   gap: 3rem;
   margin: 2rem 0;
 }
+.product div button {
+  padding: 6px 18px;
+}
 
 @media screen and (max-width: 400px) {
   button {
@@ -104,6 +107,8 @@ button{
   .product {
     gap: 1em !important;
     padding: 1em !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     /* margin: 1em 3em !important; */
   }
   .product img {

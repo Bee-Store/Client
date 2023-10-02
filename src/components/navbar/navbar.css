@@ -4,6 +4,9 @@
 .navLinkResponsive {
   display: none;
 }
+.show-only {
+  display: none !important;
+}
 a {
   text-decoration: none;
   color: black;
@@ -21,7 +24,7 @@ button,
   border: none;
   cursor: pointer;
 }
-.loginbtn{
+.loginbtn {
   padding: 6px 18px;
 }
 button:hover,
@@ -87,12 +90,30 @@ button:hover,
 
 /* For screen with small screens */
 @media screen and (max-width: 400px) {
+  .nav-wrapper {
+    display: block;
+    z-index: 999 !important;
+    gap: 1em !important;
+  }
+  .top-wrapper {
+    display: block;
+    padding: 2em 0 !important;
+    gap: 2em !important;
+  }
+  .top-wrapper span {
+    font-size: 12px !important;
+  }
+  .top-wrapper div {
+    display: flex;
+  }
+  .top-wrapper > img {
+    width: 20px !important;
+  }
   .navContainer {
-    margin: 0 !important;
+    margin: 6em 0 !important;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 1em;
     padding: 2em 2em;
     align-items: center;
   }
@@ -112,7 +133,7 @@ button:hover,
     justify-content: center;
     align-items: center;
     position: fixed;
-    margin-top: 6.3em !important;
+    margin-top: 12.3em !important;
     padding: 3em 0;
     height: 40vh;
     z-index: 999 !important;
@@ -120,5 +141,10 @@ button:hover,
     background-color: #eba937;
     gap: 10px;
     width: 100vw;
+  }
+  .show-only {
+    display: flex !important;
+    font-size: 18px !important;
+    padding: 8px 8px;
   }
 }

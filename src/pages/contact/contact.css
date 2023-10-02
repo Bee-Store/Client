@@ -1,0 +1,93 @@
+.contact-wrapper {
+  margin: 16em 10em 3em 10em;
+  display: flex;
+  flex-direction: row;
+  gap: 6em;
+}
+h1 {
+  font-weight: bold;
+  font-size: 24px;
+}
+span {
+  font-size: 20px;
+}
+
+/* Form.jsx */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.form-wrapper form input,
+textarea {
+  border: 2px solid #eba937;
+  outline: none;
+  padding: 16px 24px;
+  border-radius: 10px;
+}
+
+.form-wrapper form div {
+  display: flex;
+  gap: 3em;
+}
+.form-wrapper form button {
+  background-color: #eba937;
+  padding: 5px 6px;
+  font-size: 20px;
+}
+
+/* Message.jsx */
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.message-wrapper .message-shared {
+  display: flex;
+  flex-direction: column;
+}
+.message-wrapper .message-shared span:nth-last-child(1) {
+  color: #eba937;
+}
+
+/* For mobile screens */
+@media screen and (max-width: 400px) {
+  * {
+    overflow-x: hidden;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  span {
+    font-size: 16px;
+  }
+  .contact-wrapper {
+    margin: 15em 1em 2em 1em !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .form-wrapper {
+    gap: 1em;
+  }
+  .form-wrapper form {
+    gap: 20px !important;
+    padding: 1rem;
+  }
+  .form-wrapper form input,
+  textarea {
+    padding: 4px 10px;
+  }
+  .form-wrapper form div {
+    gap: 0.5em;
+  }
+  .form-wrapper form button {
+    font-size: 16px;
+  }
+}
