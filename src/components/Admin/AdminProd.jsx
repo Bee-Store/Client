@@ -4,6 +4,7 @@ import { fetchProducts } from '../../features/product/productSlice';
 import Navbar from '../navbar/navbar';
 import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice'; // import new actions
 import AddProductModal from './AddProductModal';
+import { addProductAsync,updateProductAsync,removeProductAsync } from '../../features/product/productSlice';
 import './admin.css'
 
 const AdminProducts = () => {
@@ -29,7 +30,11 @@ const AdminProducts = () => {
     // dispatch(updateProductAsync(editedProduct));
     setIsEditing(false);
     setEditedProduct({});
+    
   };
+  function handleDeleteClick(){
+    
+  }
 
   return (
     <>
@@ -41,7 +46,7 @@ const AdminProducts = () => {
         <AddProductModal />
           <div className="popular-collection-items">
             {products.map((product, index) => {
-              const item = cartState.products.find(item => item.product._id === product._id);
+              const item = cartState.find(item => item.product._id === product._id);
               return (
                 <div class="item" key={index}> {/* Add unique key prop here */}
                   {isEditing && product._id === editedProduct._id ? (
@@ -81,7 +86,7 @@ const AdminProducts = () => {
                         </p>
                       )
                     )}
-                    <p>Delete</p>
+                    <p onClick={handleDeleteClick}>Delete</p>
                   </span>
                 </div>
               );
