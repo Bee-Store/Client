@@ -45,7 +45,7 @@ export default function App() {
             }
           />
           <Route path="/shop" exact="true" element={<Items />} />
-
+          <Route path="/adminprod" exact="true" element={<AdminProducts />} />
           <Route
             path="/auth"
             exact="true"

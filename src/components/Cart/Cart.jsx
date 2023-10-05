@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector,useDispatch  } from 'react-redux';
-import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice';
+import { selectTotalAmount, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice';
 
 
 import Navbar from '../navbar/navbar'
 
 import './cart.css'
+import { useNavigate } from 'react-router';
 function Cart() {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
-  const totalAmount = useSelector(state => state.cart.totalAmount);
+ 
   const cartState = useSelector(state => state.cart);
-  const cartData = cartState.items
-console.log(cartData)
+  const totalAmount = useSelector(selectTotalAmount);
+  const cartData = cartState
+  console.log(cartData)
+
   const [chosenMethod, setChosenMethod] = useState('Mpesa');
 const [btnClass, setBtnClass] = useState('')
   useEffect(() => {
@@ -35,7 +39,7 @@ const [btnClass, setBtnClass] = useState('')
 
         <div class="flex justify-between border-b pb-8">
           <h1 class="font-semibold text-2xl">Order Summary</h1>
-          <h2 class="font-semibold text-2xl">3 Items</h2>
+          <h2 class="font-semibold text-2xl">{cartData.length} Items</h2>
         </div>
         <div class="flex mt-10 mb-5">
           <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
@@ -53,7 +57,9 @@ const [btnClass, setBtnClass] = useState('')
           <div class="flex flex-col justify-between ml-4 flex-grow">
             <span class="font-bold text-sm">{item.product.name}</span>
             <span class="text-green-500 text-xs">{item.quantity}</span>
-            <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs"><i className='bx bx-trash'  onClick={()=>dispatch(removeFromCart(item))}></i></a>
+            <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">
+  <i className='bx bx-trash' onClick={() => dispatch(removeFromCart(item.product._id))}></i>
+</a>
           </div>
         </div>
 
@@ -65,7 +71,7 @@ const [btnClass, setBtnClass] = useState('')
 
       
 
-        <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
+        <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10" onClick={()=> navigate('/shop')}>
       
          
           Continue Shopping

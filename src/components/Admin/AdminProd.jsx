@@ -9,6 +9,7 @@ import './admin.css'
 const AdminProducts = () => {
     const [showModal, setShowModal] = useState(false);
   const products = useSelector(state => state.products);
+  console.log(products)
   const dispatch = useDispatch();
   const cartState = useSelector(state => state.cart);
   const [isEditing, setIsEditing] = useState(false);
@@ -40,7 +41,7 @@ const AdminProducts = () => {
         <AddProductModal />
           <div className="popular-collection-items">
             {products.map((product, index) => {
-              const item = cartState.items.find(item => item.product._id === product._id);
+              const item = cartState.products.find(item => item.product._id === product._id);
               return (
                 <div class="item" key={index}> {/* Add unique key prop here */}
                   {isEditing && product._id === editedProduct._id ? (
@@ -53,7 +54,7 @@ const AdminProducts = () => {
                     </>
                   ) : (
                     <>
-                      <img src={product.image} alt="Raw honey" />
+                      <img src={`http://localhost:5000/${product.image}`} alt="Raw honey" />
                       <span className='prod-desc'> 
                         <h2>{product.name}</h2>
                         <p class="price">${product.price}</p>           

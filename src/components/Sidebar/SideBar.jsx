@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice';
+import { selectTotalAmount,addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice';
 import './sidebar.css';
 import { useNavigate } from 'react-router';
 
@@ -8,9 +8,8 @@ function SideBar({ isOpen, toggle })  {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const cartState = useSelector(state => state.cart);
-  const cartItems = cartState.items
-  const totalAmount = useSelector(state => state.cart.totalAmount);
-
+  const cartItems = cartState|| []; // Get the products from the cart state
+  const totalAmount = useSelector(selectTotalAmount);
   function handleOpen() {}
 
   return (
@@ -31,12 +30,13 @@ function SideBar({ isOpen, toggle })  {
                 <div className="cart-buttons">
                   <span className='buy-add'>
                     <div className="quantity">
-                      <button onClick={() => dispatch(decreaseQuantity(item))}>-</button>
-                      <p>{item.quantity}</p>
-                      <button onClick={() => dispatch(increaseQuantity(item))}>+</button>
+                            <button onClick={() => dispatch(decreaseQuantity({ product: item.product._id, quantity: 1 }))}>-</button>
+                            <p>{item.quantity}</p>
+                            <button onClick={() => dispatch(increaseQuantity({ product: item.product._id, quantity: 1 }))}>+</button>
+
                     </div>
                   </span>
-                  <span><i className='bx bx-trash'  onClick={()=>dispatch(removeFromCart(item))}></i></span>
+                  <span><i className='bx bx-trash'  onClick={()=>dispatch(removeFromCart(item.product._id))}></i></span>
                 </div>
               </div>
               {index !== cartItems.length - 1 && (<hr />)}

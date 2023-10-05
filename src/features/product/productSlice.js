@@ -32,6 +32,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async() => {
     const res = await fetch('http://127.0.0.1:5000/api/products')
     const data = await res.json()
+    console.log(data)
     return data
 })
 
@@ -42,16 +43,27 @@ export const fetchProduct = createAsyncThunk('products/fetchProduct', async(id) 
 })
 
 export const addProductAsync = createAsyncThunk('products/addProduct', async(product) => {
+    // Create a FormData instance
+    const formData = new FormData();
+  
+    // Append the image file under the 'image' field
+    formData.append('image', product.image);
+  
+    // Append the other product data
+    formData.append('name', product.name);
+    formData.append('price', product.price);
+  
+    // Send a POST request to the /api/products endpoint with the form data
     const res = await fetch('http://127.0.0.1:5000/api/products', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-    })
-    const data = await res.json()
-    return data
-})
+      method: 'POST',
+      body: formData,
+    });
+  
+    const data = await res.json();
+    return data;
+  });
+  
+
 
 export const updateProductAsync = createAsyncThunk('products/updateProduct', async({ id, updatedProduct }) => {
     const res = await fetch(`http://127.0.0.1:5000/api/products/${id}`, {

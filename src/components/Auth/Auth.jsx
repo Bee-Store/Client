@@ -12,6 +12,7 @@ function Auth() {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [tempCart, setTempCart] = useState(JSON.parse(localStorage.getItem('cart')) || []);
   function toggleForm() {
     setIsActive(!isActive);
   }
@@ -55,6 +56,7 @@ function Auth() {
       .post(`${import.meta.env.VITE_BASE_URL}auth/login`, {
         username,
         password,
+        tempCart,
       })
       .then((response) => {
         // Handle the response from the server
@@ -66,6 +68,7 @@ function Auth() {
             message: response.data.message,
           });
           localStorage.setItem("access_token", response.data.data.access_token);
+          localStorage.removeItem('cart'); // Clear the temporary cart
           navigate("/");
         }
       })
@@ -74,6 +77,31 @@ function Auth() {
         console.error("Error:", error);
       });
   };
+  // const LoginFunc = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post(`${import.meta.env.VITE_BASE_URL}auth/login`, {
+  //       username,
+  //       password,
+  //     })
+  //     .then((response) => {
+  //       // Handle the response from the server
+  //       console.log("Response:", response.data);
+
+  //       if (response.data.data.access_token) {
+  //         notifications.show({
+  //           title: "Login success",
+  //           message: response.data.message,
+  //         });
+  //         localStorage.setItem("access_token", response.data.data.access_token);
+  //         navigate("/");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       // Handle any errors that occurred during the request
+  //       console.error("Error:", error);
+  //     });
+  // };
   return (
     <div>
       <Navbar />
