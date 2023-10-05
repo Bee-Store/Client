@@ -1,0 +1,57 @@
+.product-add-form input{
+
+border: 1px solid black;
+border-radius: 4px;
+
+
+}
+.product-add-form label{
+    margin-left: 2rem;
+}
+.product-add-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 300px;
+    gap: 0.5rem;
+    position: relative;
+}
+.product-add-form button{
+    width: 7rem;
+}
+.modal{
+    display: flex;
+    justify-content: center;
+}
+.close-modal{
+    padding: 2px 8px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    cursor: pointer;
+    color: white;
+    font-size: smaller;
+   
+}
+.add-new-product{
+    border: 1px solid #eba937 ;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background-color: rgb(90, 187, 98);
+}
+.admin-add-prod{
+    background-color: white;
+    border: 1px solid #eba937;
+    padding: 5px 8px;
+}
+.admin-add-prod :hover{
+    background-color: #eba937;
+}
+.item input{
+    border: 1px solid black;
+    margin-bottom: 1rem;
+}

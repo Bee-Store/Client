@@ -1,74 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../../features/product/productSlice';
 import Navbar from '../navbar/navbar';
+import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice'; // import new actions
 import "./Items.css";
+
 const Items = () => {
-  const [added, setAdded] = useState(false)
-  const [quantity, setQuantity] = useState(1)
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
+  const cartState = useSelector(state => state.cart);
 
-  function addToCartHandler(){
-    setAdded(true)
-  }
-
-  function increaseQuantityHandler(){
-    setQuantity(quantity + 1)
-  }
-
-  function decreaseQuantityHandler(){
-    if (quantity > 1){
-      setQuantity(quantity - 1)
-    } else if(quantity === 1){
-      setAdded(false)
-    }
-  }
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  return (
-<>
-<Navbar/>
-    <div className='popular-collection'>
-    <div className='container'>
-     <div className="popular-collection-items">
-      
 
-      {products.map(products => (
-          
-          <div class="item">
-          <img src={products.image} alt="Raw honey" />
-         
-          <span className='prod-desc'> <h2>{products.name}</h2>
-          <p class="price">${products.price}</p>           
-          </span>
-         
-          <p class="rating">
-        
-          </p>
-          <span className='buy-add'>
-            {added ? ( <div className="quantity">
-            <button onClick={decreaseQuantityHandler}>-</button>
-            <p>{quantity}</p>
-            <button onClick={increaseQuantityHandler} >+</button>
-          </div>) : (<p class="description" onClick={addToCartHandler}>
-            Add to cart
-          </p>)}
-       
-          <p>
-            Buy now
-          </p>
-          </span>
+  return (
+    <>
+      <Navbar/>
+      <div className='popular-collection'>
+        <div className='container'>
+          <div className="popular-collection-items">
+            {products.map((product, index) => {
+              const item = cartState.items.find(item => item.product._id === product._id);
+              return (
+                <div class="item" key={index}> {/* Add unique key prop here */}
+                  <img src={product.image} alt="Raw honey" />
+                  <span className='prod-desc'> 
+                    <h2>{product.name}</h2>
+                    <p class="price">${product.price}</p>           
+                  </span>
+                  <p class="rating"></p>
+                  <span className='buy-add'>
+                    {item ? ( 
+                      <div className="quantity">
+                        <button onClick={() => dispatch(decreaseQuantity({product}))}>-</button>
+                        {/* Ensure quantity is never NaN */}
+                        <p>{isNaN(item.quantity) ? 0 : item.quantity}</p>
+                        <button onClick={() => dispatch(increaseQuantity({product}))}>+</button>
+                      </div>
+                    ) : (
+                      <p class="description" onClick={() => dispatch(addToCart({product, quantity: 1}))}>
+                        Add to cart
+                      </p>
+                    )}
+                    <p>Buy now</p>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        
-          
-      ))}
       </div>
-      </div>
-      </div>
-      </>
+    </>
   )
 }
 
-export default Items
+export default Items;
