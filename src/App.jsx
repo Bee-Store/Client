@@ -25,7 +25,7 @@ export default function App() {
   };
   return (
     <MantineProvider>
-      <Notifications />
+      <Notifications position="top-right" zIndex={1000} />
       <BrowserRouter>
         <Routes>
           <Route
