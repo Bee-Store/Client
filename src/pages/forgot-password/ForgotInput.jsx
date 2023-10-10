@@ -10,6 +10,7 @@ import {
   Center,
   Box,
   rem,
+  PasswordInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { IconArrowLeft, IconX } from "@tabler/icons-react";
@@ -17,24 +18,25 @@ import classes from "./ForgotPassword.module.css";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { notifications } from "@mantine/notifications";
-import { useNavigate } from "react-router";
 import axios from "axios";
 
-export default function ForgotPassword() {
-  const navigate = useNavigate()
+export default function ForgotInput() {
   const form = useForm({
-    initialValues: { email: "" },
+    initialValues: { token: "", password: "" },
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    //   token: (value) =>
+    //     value.length >= 6 ? "token should be more than 8 characters long" : null,
     },
   });
 
   const submitForm = () => {
     const formItem = new FormData();
 
-    formItem.append("email", form.values.email);
+    formItem.append("resetToken", form.values.token);
+    formItem.append("newPassword", form.values.password);
 
     if (form.validate().hasErrors === true) {
+        console.log(form.validate().errors);
       for (const [key, value] of Object.entries(form.validate().errors)) {
         notifications.show({
           title: `Invalid ${key}`,
@@ -48,9 +50,10 @@ export default function ForgotPassword() {
 
     axios({
       method: "post",
-      url: `${import.meta.env.VITE_BASE_URL}auth/forgot/password`,
+      url: `${import.meta.env.VITE_BASE_URL}auth/forgot/password/reset`,
       data: {
-        email: form.values.email,
+        resetToken: form.values.token,
+        newPassword: form.values.password,
       },
     })
       .then((res) => {
@@ -60,7 +63,6 @@ export default function ForgotPassword() {
           message: `${res.data.message}`,
           autoClose: 2000,
         });
-        navigate("/forgot/reset");
       })
       .catch((error) => {
         notifications.show({
@@ -87,9 +89,16 @@ export default function ForgotPassword() {
         <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
           <form onSubmit={form.onSubmit((values) => values)}>
             <TextInput
-              label="Your email"
-              placeholder="me@mantine.dev"
-              {...form.getInputProps("email")}
+              label="Your token"
+              placeholder="Enter your token"
+              {...form.getInputProps("token")}
+              required
+            />
+
+            <PasswordInput
+              label="New Password"
+              placeholder="Enter your new password"
+              {...form.getInputProps("password")}
               required
             />
 
@@ -102,7 +111,7 @@ export default function ForgotPassword() {
               type="submit"
               onClick={submitForm}
             >
-              Reset password
+              Update Password
             </Button>
           </form>
 
