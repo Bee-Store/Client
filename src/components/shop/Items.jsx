@@ -4,12 +4,14 @@ import { fetchProducts } from '../../features/product/productSlice';
 import Navbar from '../navbar/navbar';
 import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice'; // import new actions
 import "./Items.css";
+import { useNavigate } from 'react-router';
 
 const Items = () => {
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
   const cartState = useSelector(state => state.cart);
   const loading = useSelector(state => state.loading); // Add this line
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -51,7 +53,12 @@ const Items = () => {
                           Add to cart
                         </p>
                       )}
-                      <p>Buy now</p>
+                      <p onClick={() => {
+                            if (!item) {
+                              dispatch(addToCart({product: product, quantity: 1}));
+                            }
+                            navigate('/cart');
+                          }}>Buy now</p>
                     </span>
                   </div>
                 );

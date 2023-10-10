@@ -14,7 +14,7 @@ function Cart() {
   const cartState = useSelector(state => state.cart);
   const totalAmount = useSelector(selectTotalAmount);
   const cartData = cartState
-  console.log(cartData)
+  console.log(totalAmount)
 
   const [chosenMethod, setChosenMethod] = useState('Mpesa');
 const [btnClass, setBtnClass] = useState('')

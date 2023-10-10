@@ -5,13 +5,13 @@
     width: 0;
     height: 100%;
     background: #f7f7f7;
-    z-index: 999;
+    z-index: 9999;
     transition: 0.3s ease-in-out;
     overflow-x: hidden;
     height: 100vh;
 }
 
-.sidebar.open {
+.open {
     width: 410px;
 }
 .cart {

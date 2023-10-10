@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Burger } from "@mantine/core";
 import SideBar from "../Sidebar/SideBar";
 import { NavLink, useNavigate } from "react-router-dom";
+// import Items from "../shop/Items";
 
 import { navLinks } from "./../../helpers/navbar.helpers";
 import "./navbar.css";
@@ -32,11 +33,12 @@ export default function Navbar() {
       Log Out
     </button>
   );
-  const [isOpen, setIsOpen] = useState(false);
+ 
 
   const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
-    setIsOpen(!open);
+    setIsOpen(!isOpen);
   };
   const navData =
     navLinks &&
@@ -143,6 +145,7 @@ export default function Navbar() {
 
             <span onClick={toggle}>Cart</span>
             <SideBar isOpen={isOpen} toggle={toggle} />
+            {/* <Items isOpen={isOpen} toggle={toggle} /> */}
 
             <h3>3</h3>
           </button>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTotalAmount,addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice';
 import './sidebar.css';
@@ -10,11 +10,16 @@ function SideBar({ isOpen, toggle })  {
   const cartState = useSelector(state => state.cart);
   const cartItems = cartState|| []; // Get the products from the cart state
   const totalAmount = useSelector(selectTotalAmount);
-  function handleOpen() {}
+  
+  const handleClick = (event) => {
+    event.stopPropagation();
+    toggle();
+    localStorage.setItem('isOpen', JSON.stringify(!isOpen));
+  };
 
   return (
-    <div className={isOpen ? 'sidebar open' : 'sidebar'} onClick={toggle}>
-      <h1 onClick={handleOpen} className='cart-header'><span><i class='bx bx-left-arrow-alt'></i></span>Your Bag</h1>
+    <div className={isOpen ? 'sidebar open' : 'sidebar'} >
+            <h1 className='cart-header'><span><i class='bx bx-left-arrow-alt' onClick={handleClick}></i></span>Your Bag</h1>
       <hr style={{marginBottom:'2rem'}}/>
       <div className="cart-container">
         <div className='cart-holder'>
@@ -49,8 +54,8 @@ function SideBar({ isOpen, toggle })  {
             <p>Total</p>
             <p>KSH <span>{Math.floor(totalAmount)}</span></p>
           </div>
-          <button onClick={()=>navigate('/shop')}>Continue Shopping</button>
-          <button onClick={()=>navigate('/cart')}>Proceed to Checkout</button>
+          <button onClick={()=>{ toggle(), navigate('/shop')}} >Continue Shopping</button>
+          <button onClick={()=>{navigate('/cart')}}>Proceed to Checkout</button>
         </div>
       </div>
     </div>

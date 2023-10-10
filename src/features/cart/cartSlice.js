@@ -436,11 +436,33 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+
+// Async action to add a product to the cart
+export const addToCartAsync = createAsyncThunk('cart/addToCart', async (product, { getState }) => {
+  const { user } = getState();
+  if (user) {
+    const response = await axios.post(`http://localhost:5000/api/cart/add`, { userId: user.id, product, quantity: 1 }, { headers: { Authorization: `Bearer ${user.token}` } });
+    console.log(user)
+    return response.data;
+  } else {
+    // If the user is not logged in, add the product to the cart in local storage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProductIndex = cart.findIndex(p => p.product._id === product._id);
+    if (existingProductIndex >= 0) {
+      cart[existingProductIndex].quantity += 1;
+    } else {
+      cart.push({ product, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    return cart;
+  }
+});
 // Async action to fetch the cart from the backend
 export const fetchCart = createAsyncThunk('cart/fetchCart', async (_, { getState }) => {
   const { user } = getState();
   if (user) {
-    const response = await axios.get(`/api/cart/${user.id}`);
+    const response = await axios.get(`http://localhost:5000/api/cart/${user.id}`);
+  console.log(user)
     return response.data;
   } else {
     // If the user is not logged in, get the cart from local storage
@@ -452,10 +474,9 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async (_, { getState
 export const syncCart = createAsyncThunk('cart/syncCart', async (_, { getState }) => {
   const { user, cart } = getState();
   if (user) {
-    const response = await axios.post(`/api/cart/${user.id}`, cart);
+    const response = await axios.post(`http://localhost:5000/api/cart/merge`, { userId: user.id, tempCart: cart });
     return response.data;
   } else {
-    // If the user is not logged in, save the cart to local storage
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 });
@@ -466,6 +487,8 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const { product, quantity } = action.payload;
+      console.log('Price:', product.price); // Log the price
+      console.log('Quantity:', quantity);
       const existingProductIndex = state.findIndex(p => p.product._id === product._id);
       if (existingProductIndex >= 0) {
         state[existingProductIndex].quantity += quantity;
