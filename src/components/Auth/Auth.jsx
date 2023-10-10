@@ -53,8 +53,8 @@ function Auth() {
     e.preventDefault();
     axios
       .post(`${import.meta.env.VITE_BASE_URL}auth/login`, {
-        username,
-        password,
+        email: email,
+        password: password,
       })
       .then((response) => {
         // Handle the response from the server
@@ -90,12 +90,12 @@ function Auth() {
               <form action="" onSubmit={(e) => LoginFunc(e)}>
                 <h2>Sign In</h2>
                 <input
-                  type="text"
+                  type="email"
                   name=""
-                  value={username}
-                  placeholder="Username"
+                  value={email}
+                  placeholder="Email"
                   onChange={(e) => {
-                    setUsername(e.target.value);
+                    setEmail(e.target.value);
                   }}
                 />
 
@@ -109,6 +109,11 @@ function Auth() {
                   }}
                 />
                 <input type="submit" name="" value="Login" />
+                <p class="signup">
+                  <a href="/forgot" onClick={toggleForm}>
+                    Forgot Password ?
+                  </a>
+                </p>
                 <p class="signup">
                   Don't have an account ?
                   <a href="#" onClick={toggleForm}>

@@ -13,6 +13,8 @@ import AdminProducts from "./components/Admin/AdminProd";
 
 import "./App.css";
 import Team from "./pages/team/Team";
+import ForgotPassword from "./pages/forgot-password/ForgotPassword";
+import ForgotInput from "./pages/forgot-password/ForgotInput";
 
 const Auth = lazy(() => import("./components/Auth/Auth"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
@@ -57,6 +59,26 @@ export default function App() {
             element={
               <React.Suspense fallback={<Load />}>
                 <Auth />
+              </React.Suspense>
+            }
+          />
+
+          {/* Forgot Password */}
+          <Route
+            path="/forgot"
+            exact="true"
+            element={
+              <React.Suspense fallback={<Load />}>
+                <ForgotPassword />
+              </React.Suspense>
+            }
+          />
+
+          <Route
+            path="/forgot/reset"
+            element={
+              <React.Suspense fallback={<Load />}>
+                <ForgotInput />
               </React.Suspense>
             }
           />
