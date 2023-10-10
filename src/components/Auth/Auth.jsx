@@ -110,6 +110,11 @@ function Auth() {
                 />
                 <input type="submit" name="" value="Login" />
                 <p class="signup">
+                  <a href="/forgot" onClick={toggleForm}>
+                    Forgot Password ?
+                  </a>
+                </p>
+                <p class="signup">
                   Don't have an account ?
                   <a href="#" onClick={toggleForm}>
                     Sign Up.
