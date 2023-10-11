@@ -4,11 +4,13 @@ import { fetchProducts } from '../../features/product/productSlice';
 import Navbar from '../navbar/navbar';
 import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../../features/cart/cartSlice'; // import new actions
 import AddProductModal from './AddProductModal';
+import { addProductAsync,updateProductAsync,removeProductAsync } from '../../features/product/productSlice';
 import './admin.css'
 
 const AdminProducts = () => {
     const [showModal, setShowModal] = useState(false);
   const products = useSelector(state => state.products);
+  console.log(products)
   const dispatch = useDispatch();
   const cartState = useSelector(state => state.cart);
   const [isEditing, setIsEditing] = useState(false);
@@ -28,7 +30,11 @@ const AdminProducts = () => {
     // dispatch(updateProductAsync(editedProduct));
     setIsEditing(false);
     setEditedProduct({});
+    
   };
+  function handleDeleteClick(){
+    
+  }
 
   return (
     <>
@@ -40,7 +46,7 @@ const AdminProducts = () => {
         <AddProductModal />
           <div className="popular-collection-items">
             {products.map((product, index) => {
-              const item = cartState.items.find(item => item.product._id === product._id);
+              const item = cartState.find(item => item.product._id === product._id);
               return (
                 <div class="item" key={index}> {/* Add unique key prop here */}
                   {isEditing && product._id === editedProduct._id ? (
@@ -53,7 +59,7 @@ const AdminProducts = () => {
                     </>
                   ) : (
                     <>
-                      <img src={product.image} alt="Raw honey" />
+                      <img src={`http://localhost:5000/${product.image}`} alt="Raw honey" />
                       <span className='prod-desc'> 
                         <h2>{product.name}</h2>
                         <p class="price">${product.price}</p>           
@@ -80,7 +86,7 @@ const AdminProducts = () => {
                         </p>
                       )
                     )}
-                    <p>Delete</p>
+                    <p onClick={handleDeleteClick}>Delete</p>
                   </span>
                 </div>
               );

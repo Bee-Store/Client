@@ -4,14 +4,21 @@ import "./auth.css";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { notifications } from "@mantine/notifications";
+import { useDispatch, useSelector } from "react-redux"; // import redux hooks
+import { fetchCart, syncCart } from "../../features/cart/cartSlice"; // import cart actions
 
 function Auth() {
   const [isActive, setIsActive] = useState(false);
   const [username, setUsername] = useState("");
+  // const [loginUsername, setLoginUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const [loginPassword, setLoginPassword] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const dispatch = useDispatch(); // get the dispatch function
+  const cart = useSelector(state => state.cart); // get the cart state
+
   function toggleForm() {
     setIsActive(!isActive);
   }
@@ -23,7 +30,7 @@ function Auth() {
     e.preventDefault();
 
     axios
-      .post(`${import.meta.env.VITE_BASE_URL}auth/register`, {
+      .post('http://localhost:5000/api/auth/register', {
         username,
         password,
         email,
@@ -49,31 +56,108 @@ function Auth() {
   };
 
   // Function for logging in
+  // const LoginFunc = (e) => {
+  //   e.preventDefault();
+  //   console.log(e)
+  //   // Use fetch API to make a POST request
+  //   fetch('http://localhost:5000/api/auth/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       username,
+  //       password,
+  //       tempCart: cart, // Pass the cart state as it is
+  //     })
+  //   })
+  //   .then(response => response.json()) // convert the response to JSON
+  //   .then(data => {
+  //     console.log('jj')
+  //     // Handle the data
+  //     console.log("Response:", data);
+  
+  //     if (data.data.access_token) {
+  //       notifications.show({
+  //         title: "Login success",
+  //         message: data.message,
+  //       });
+  //       localStorage.setItem("access_token", data.data.access_token);
+  //       dispatch(fetchCart()); // Fetch the cart from the backend after logging in
+  //       navigate("/");
+  //     }
+  //   })
+  //   .catch(error => {
+  //     // Handle any errors that occurred during the request
+  //     console.error("Error:", error);
+  //   });
+  // };
   const LoginFunc = (e) => {
     e.preventDefault();
-    axios
-      .post(`${import.meta.env.VITE_BASE_URL}auth/login`, {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        // Handle the response from the server
-        console.log("Response:", response.data);
-
-        if (response.data.data.access_token) {
-          notifications.show({
-            title: "Login success",
-            message: response.data.message,
-          });
-          localStorage.setItem("access_token", response.data.data.access_token);
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the request
-        console.error("Error:", error);
-      });
+    const tempCart = JSON.parse(localStorage.getItem('cart')) || [];
+    fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, tempCart }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      if (data.data.access_token) {
+        notifications.show({ title: "Login success", message: data.message });
+        localStorage.setItem("access_token", data.data.access_token);
+        localStorage.removeItem('cart'); // Clear the local storage cart
+        dispatch(syncCart()); // Sync the local storage cart with the backend after logging in
+        navigate("/");
+      }
+    })
+    .catch(error => console.error("Error:", error));
   };
+  
+  // const LoginFunc = (e) => {
+  //   e.preventDefault();
+  //   console.log(e)
+  //   // Get the temporary cart from local storage or Redux state
+  //   const tempCart = JSON.parse(localStorage.getItem('cart')) || [];
+  //   // Use fetch API to make a POST request
+  //   fetch('http://localhost:5000/api/auth/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       username,
+  //       password,
+  //       tempCart, // Pass the temporary cart
+  //     })
+  //   })
+  //   .then(response => response.json()) // convert the response to JSON
+  //   .then(data => {
+  //     console.log('jj')
+  //     // Handle the data
+  //     console.log("Response:", data);
+  
+  //     if (data.data.access_token) {
+  //       notifications.show({
+  //         title: "Login success",
+  //         message: data.message,
+  //       });
+  //       localStorage.setItem("access_token", data.data.access_token);
+  //       dispatch(fetchCart()); // Fetch the merged cart from the backend after logging in
+  //       navigate("/");
+  //     }
+  //   })
+  //   .catch(error => {
+  //     // Handle any errors that occurred during the request
+  //     console.error("Error:", error);
+  //   });
+  // };
+  
+  
+
+
+
+
   return (
     <div>
       <Navbar />
@@ -87,7 +171,8 @@ function Auth() {
               />
             </div>
             <div class="formBx">
-              <form action="" onSubmit={(e) => LoginFunc(e)}>
+              
+              <form action="" onSubmit={(e) =>LoginFunc(e)}>
                 <h2>Sign In</h2>
                 <input
                   type="email"
@@ -146,9 +231,9 @@ function Auth() {
                   }}
                 />
                 <input
-                  type="text"
+                  type="tel"
                   name=""
-                  placeholder="Phone number Eg 0704"
+                  placeholder="Phone Number"
                   value={phoneNumber}
                   onChange={(e) => {
                     setPhoneNumber(e.target.value);
@@ -183,7 +268,7 @@ function Auth() {
             </div>
             <div class="imgBx">
               <img
-                src="https://images.unsplash.com/photo-1542243413692-f1939950f4ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHJhdyUyMGhvbmV5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                src="https://images.unsplash.com/photo-1644221362205-353214a3124e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHJhdyUyMGhvbmV5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
                 alt=""
               />
             </div>

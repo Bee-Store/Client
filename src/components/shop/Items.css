@@ -1,7 +1,9 @@
 /* variables css */
 
   
- 
+.blur {
+ background-color: #000000;
+}
   img {
     width: 100%;
   }
