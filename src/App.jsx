@@ -9,7 +9,7 @@ import Details from "./components/Details/Details";
 import Load from "./loader/Load";
 
 import AdminProducts from "./components/Admin/AdminProd";
-
+import AdminHome from "./components/Admin/AdminHome";
 
 import "./App.css";
 import Team from "./pages/team/Team";
@@ -101,7 +101,7 @@ export default function App() {
             }
           />
           <Route path="/cart" exact="true" element={<Cart />} />
-
+          <Route path="/ahome" exact="true" element={<AdminHome />} />
           {/* Error page */}
           <Route
             path="*"

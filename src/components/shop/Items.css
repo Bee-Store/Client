@@ -166,3 +166,8 @@
       grid-template-columns: 1fr;
     }
   }
+  @media screen and (min-width: 985px) and (max-width: 1224px) {
+    .popular-collection .popular-collection-items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}

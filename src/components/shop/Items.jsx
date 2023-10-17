@@ -35,7 +35,12 @@ const Items = () => {
                 const item = cartState && cartState.find(item => item.product._id === product._id);
                 return (
                   <div class="item" key={index}> {/* Add unique key prop here */}
-                    <img src={`http://localhost:5000/${product.image}`} alt="Raw honey" />
+                    <img src={`http://localhost:5000/${product.image}`} alt="Raw honey" className='img'
+                     style={{
+                      width: '100%', 
+                      height: '10rem', 
+                    }}
+                    />
                     <span className='prod-desc'>
                       <h2>{product.name}</h2>
                       <p class="price">${product.price}</p>

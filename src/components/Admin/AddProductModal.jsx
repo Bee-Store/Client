@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useDropzone } from 'react-dropzone';
 import { addProductAsync } from '../../features/product/productSlice';
+import './admin.css'
 
 const AddProductModal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -43,10 +44,11 @@ const AddProductModal = () => {
               
               <label>
                 Image: </label>
-                <div {...getRootProps()}>
+                <div {...getRootProps()} className='image-upload-box'>
                   <input name='image' {...getInputProps()} />
                   {
                     isDragActive ?
+                    
                       <p>Drop the files here ...</p> :
                       <p>Drag 'n' drop some files here, or click to select files</p>
                   }
