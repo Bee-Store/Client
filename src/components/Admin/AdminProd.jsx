@@ -32,18 +32,21 @@ const AdminProducts = () => {
     setEditedProduct({});
     
   };
-  function handleDeleteClick(){
+  function handleDeleteClick(product){
     
+    console.log('delete:' ,product._id)
+     dispatch(removeProductAsync(product._id))
   }
 
   return (
     <>
-      <Navbar/>
-     
-      <div className='popular-collection'>
+   
+      <div className='popular-collection admin-pop-collection'>
       
-        <div className='container'>
+        <div className='Admin-container'>
+          <div className='add-modal'>
         <AddProductModal />
+        </div>
           <div className="popular-collection-items">
             {products.map((product, index) => {
               const item = cartState.find(item => item.product._id === product._id);
@@ -56,38 +59,32 @@ const AdminProducts = () => {
                         <input type="text" value={editedProduct.name} onChange={(e) => setEditedProduct({...editedProduct, name: e.target.value})} placeholder='product name' />
                         <input type="text" value={editedProduct.price} onChange={(e) => setEditedProduct({...editedProduct, price: e.target.value})} placeholder='price'/>          
                       </span>
+                      <p class="description" onClick={handleSaveClick}>
+                                Save
+                              </p>
                     </>
                   ) : (
                     <>
-                      <img src={`http://localhost:5000/${product.image}`} alt="Raw honey" />
+                      <img src={`http://localhost:5000/${product.image}`} alt="Raw honey" className='img-admin-upload' 
+                      style={{
+                          width: '100%', 
+                          height: '10rem', 
+                        }}/>
                       <span className='prod-desc'> 
                         <h2>{product.name}</h2>
                         <p class="price">${product.price}</p>           
                       </span>
+                      <div className="button-group">
+      <p class="description" onClick={() => handleEditClick(product)}>
+        Edit
+      </p>
+      <p class="del-btn" onClick={() => handleDeleteClick(product)}>
+        Delete
+      </p>
+    </div>
                     </>
                   )}
-                  <p class="rating"></p>
-                  <span className='buy-add'>
-                    {item ? ( 
-                      <div className="quantity">
-                        <button onClick={() => dispatch(decreaseQuantity({product}))}>-</button>
-                        {/* Ensure quantity is never NaN */}
-                        <p>{isNaN(item.quantity) ? 0 : item.quantity}</p>
-                        <button onClick={() => dispatch(increaseQuantity({product}))}>+</button>
-                      </div>
-                    ) : (
-                      isEditing && product._id === editedProduct._id ? (
-                        <p class="description" onClick={handleSaveClick}>
-                          Save
-                        </p>
-                      ) : (
-                        <p class="description" onClick={() => handleEditClick(product)}>
-                          Edit
-                        </p>
-                      )
-                    )}
-                    <p onClick={handleDeleteClick}>Delete</p>
-                  </span>
+              
                 </div>
               );
             })}
