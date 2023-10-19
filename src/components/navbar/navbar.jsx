@@ -3,6 +3,7 @@ import { Burger } from "@mantine/core";
 import SideBar from "../Sidebar/SideBar";
 import { NavLink, useNavigate } from "react-router-dom";
 // import Items from "../shop/Items";
+import { useSelector, useDispatch } from "react-redux";
 
 import { navLinks } from "./../../helpers/navbar.helpers";
 import "./navbar.css";
@@ -12,6 +13,7 @@ import locate from "./../../assets/landing/locate.svg";
 import clock from "./../../assets/landing/clock.svg";
 
 export default function Navbar() {
+  const cartState = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const access_token = localStorage.getItem("access_token");
   const LoginOrLogOut = !access_token ? (
@@ -33,7 +35,6 @@ export default function Navbar() {
       Log Out
     </button>
   );
- 
 
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -143,11 +144,19 @@ export default function Navbar() {
               </defs>
             </svg>
 
-            <span onClick={toggle}>Cart</span>
+            <span onClick={toggle}></span>
             <SideBar isOpen={isOpen} toggle={toggle} />
             {/* <Items isOpen={isOpen} toggle={toggle} /> */}
 
-            <h3>3</h3>
+            <span
+              style={{
+                position: "absolute",
+                right: "1rem",
+                top: "0",
+              }}
+            >
+              {cartState.length}
+            </span>
           </button>
           <Burger
             className="burger"
@@ -182,10 +191,18 @@ export default function Navbar() {
               </defs>
             </svg>
 
-            <span onClick={toggle}>Cart</span>
+            <span onClick={toggle}></span>
             <SideBar isOpen={isOpen} toggle={toggle} />
 
-            <h3>3</h3>
+            <span
+              style={{
+                position: "absolute",
+                right: "1rem",
+                top: "0",
+              }}
+            >
+              {cartState.length}
+            </span>
           </button>
 
           {LoginOrLogOut}

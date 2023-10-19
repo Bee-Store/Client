@@ -17,6 +17,7 @@ a:hover {
 }
 button,
 .tbn {
+  position: relative;
   background-color: #eba937;
   border-radius: 13px;
   outline: none;
