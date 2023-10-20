@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { notifications } from "@mantine/notifications";
 import { useDispatch, useSelector } from "react-redux"; // import redux hooks
 import { fetchCart, syncCart } from "../../features/cart/cartSlice"; // import cart actions
+import { setUser } from "../../features/login/loginSlice";
 
 function Auth() {
   const [isActive, setIsActive] = useState(false);
@@ -17,7 +18,7 @@ function Auth() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const dispatch = useDispatch(); // get the dispatch function
-  const cart = useSelector(state => state.cart); // get the cart state
+  const cart = useSelector((state) => state.cart); // get the cart state
 
   function toggleForm() {
     setIsActive(!isActive);
@@ -30,7 +31,7 @@ function Auth() {
     e.preventDefault();
 
     axios
-      .post('http://localhost:5000/api/auth/register', {
+      .post("http://localhost:5000/api/auth/register", {
         username,
         password,
         email,
@@ -76,7 +77,7 @@ function Auth() {
   //     console.log('jj')
   //     // Handle the data
   //     console.log("Response:", data);
-  
+
   //     if (data.data.access_token) {
   //       notifications.show({
   //         title: "Login success",
@@ -94,26 +95,27 @@ function Auth() {
   // };
   const LoginFunc = (e) => {
     e.preventDefault();
-    const tempCart = JSON.parse(localStorage.getItem('cart')) || [];
-    fetch('http://localhost:5000/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const tempCart = JSON.parse(localStorage.getItem("cart")) || [];
+    fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, tempCart }),
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      if (data.data.access_token) {
-        notifications.show({ title: "Login success", message: data.message });
-        localStorage.setItem("access_token", data.data.access_token);
-        localStorage.removeItem('cart'); // Clear the local storage cart
-        dispatch(syncCart()); // Sync the local storage cart with the backend after logging in
-        navigate("/");
-      }
-    })
-    .catch(error => console.error("Error:", error));
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.data.access_token);
+        if (data.data.access_token) {
+          dispatch(setUser({name: data.data.user.username,
+          email: data.data.user.email, access_token: data.data.access_token, id: data.data.user._id}))
+          notifications.show({ title: "Login success", message: data.message });
+          localStorage.removeItem('cart'); // Clear the local storage cart
+          dispatch(syncCart()); // Sync the local storage cart with the backend after logging in
+          navigate("/");
+        }
+      })
+      .catch((error) => console.error("Error:", error));
   };
-  
+
   // const LoginFunc = (e) => {
   //   e.preventDefault();
   //   console.log(e)
@@ -136,7 +138,7 @@ function Auth() {
   //     console.log('jj')
   //     // Handle the data
   //     console.log("Response:", data);
-  
+
   //     if (data.data.access_token) {
   //       notifications.show({
   //         title: "Login success",
@@ -152,11 +154,6 @@ function Auth() {
   //     console.error("Error:", error);
   //   });
   // };
-  
-  
-
-
-
 
   return (
     <div>
@@ -171,8 +168,7 @@ function Auth() {
               />
             </div>
             <div class="formBx">
-              
-              <form action="" onSubmit={(e) =>LoginFunc(e)}>
+              <form action="" onSubmit={(e) => LoginFunc(e)}>
                 <h2>Sign In</h2>
                 <input
                   type="email"

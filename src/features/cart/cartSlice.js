@@ -473,8 +473,12 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async (_, { getState
 // Async action to sync the cart with the backend
 export const syncCart = createAsyncThunk('cart/syncCart', async (_, { getState }) => {
   const { user, cart } = getState();
+ console.log(user)
   if (user) {
-    const response = await axios.post(`http://localhost:5000/api/cart/merge`, { userId: user.id, tempCart: cart });
+    const response = await axios.post(
+      /*`http://localhost:5000/api/cart/merge`*/ `http://localhost:5000/api/admin/test`,
+      { userId: user.id, tempCart: cart }
+    );
     return response.data;
   } else {
     localStorage.setItem('cart', JSON.stringify(cart));

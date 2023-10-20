@@ -29,6 +29,7 @@ export default function Navbar() {
     <button
       className="loginbtn"
       onClick={() => {
+        localStorage.clear()
         navigate("/auth");
       }}
     >
