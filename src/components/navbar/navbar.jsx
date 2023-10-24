@@ -14,9 +14,9 @@ import clock from "./../../assets/landing/clock.svg";
 
 export default function Navbar() {
   const cartState = useSelector((state) => state.cart);
+  const userState = useSelector((state) => state.user);
   const navigate = useNavigate();
-  const access_token = localStorage.getItem("access_token");
-  const LoginOrLogOut = !access_token ? (
+  const LoginOrLogOut = !userState.access_token ? (
     <button
       className="loginbtn"
       onClick={() => {
@@ -29,7 +29,7 @@ export default function Navbar() {
     <button
       className="loginbtn"
       onClick={() => {
-        localStorage.clear()
+        localStorage.clear();
         navigate("/auth");
       }}
     >

@@ -101,11 +101,10 @@ function Auth() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, tempCart }),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.data.access_token);
-        if (data.data.access_token) {
-          dispatch(setUser({name: data.data.user.username,
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.data.access_token) {
+        dispatch(setUser({name: data.data.user.username,
           email: data.data.user.email, access_token: data.data.access_token, id: data.data.user._id}))
           notifications.show({ title: "Login success", message: data.message });
           localStorage.removeItem('cart'); // Clear the local storage cart
