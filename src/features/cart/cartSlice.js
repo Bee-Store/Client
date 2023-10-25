@@ -475,8 +475,8 @@ export const syncCart = createAsyncThunk('cart/syncCart', async (_, { getState }
     console.log(cart)
     // const cartToSend = cart.length > 0 ? cart : []; 
     const response = await axios.post(
-      /*`http://localhost:5000/api/cart/merge`*/ `http://localhost:5000/api/admin/test`,
-      { userId: user.id, tempCart: [...cart] }
+      /*`http://localhost:5000/api/cart/merge`*/ `http://localhost:5000/api/mpesa/stk`,
+      { user, tempCart: cart }
     );
     console.log(console.log(response.data))
     // return response.data;
@@ -542,6 +542,11 @@ const cartSlice = createSlice({
 });
 
 export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
-export const selectTotalAmount = state => {
-  state.cart.reduce((total, item) => total + item.product.price * item.quantity, 0)};
+  export const selectTotalAmount = (state) => {
+    return state.cart.reduce(
+      (total, item) => total + item.product.price * item.quantity,
+      0
+    );
+  };
+
 export default cartSlice.reducer;

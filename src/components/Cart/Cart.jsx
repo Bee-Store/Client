@@ -19,7 +19,7 @@ function Cart() {
   const cartState = useSelector((state) => state.cart);
   const totalAmount = useSelector(selectTotalAmount);
   const cartData = cartState;
-  console.log(totalAmount);
+
 
   const [chosenMethod, setChosenMethod] = useState("Mpesa");
   const [btnClass, setBtnClass] = useState("");
@@ -56,43 +56,43 @@ function Cart() {
                 </h3>
               </div>
 
-              {cartData.map((item, index) => (
-                <div
-                  class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
-                  key={index}
-                >
-                  <div class="flex w-2/5">
-                    <div class="w-20">
-                      <img
-                        class="h-24"
-                        src="https://images.unsplash.com/photo-1605880980331-20a711b27338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGhvbmV5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
-                        alt=""
-                      />
+              {cartData.map((item, index) => {
+                return (
+                  <div
+                    class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
+                    key={index}
+                  >
+                    <div class="flex w-2/5">
+                      <div class="w-20">
+                        <img class="h-24" src={item.product.image} alt="" />
+                      </div>
+                      <div class="flex flex-col justify-between ml-4 flex-grow">
+                        <span class="font-bold text-sm">
+                          {item.product.name}
+                        </span>
+                        <span class="text-green-500 text-xs">
+                          {item.quantity}
+                        </span>
+                        <a
+                          href="#"
+                          class="font-semibold hover:text-red-500 text-gray-500 text-xs"
+                        >
+                          <i
+                            className="bx bx-trash"
+                            onClick={() =>
+                              dispatch(removeFromCart(item.product._id))
+                            }
+                          ></i>
+                        </a>
+                      </div>
                     </div>
-                    <div class="flex flex-col justify-between ml-4 flex-grow">
-                      <span class="font-bold text-sm">{item.product.name}</span>
-                      <span class="text-green-500 text-xs">
-                        {item.quantity}
-                      </span>
-                      <a
-                        href="#"
-                        class="font-semibold hover:text-red-500 text-gray-500 text-xs"
-                      >
-                        <i
-                          className="bx bx-trash"
-                          onClick={() =>
-                            dispatch(removeFromCart(item.product._id))
-                          }
-                        ></i>
-                      </a>
-                    </div>
-                  </div>
 
-                  <span class="text-center w-1/5 font-semibold text-sm">
-                    {item.product.price * item.quantity}
-                  </span>
-                </div>
-              ))}
+                    <span class="text-center w-1/5 font-semibold text-sm">
+                      {item.product.price * item.quantity}
+                    </span>
+                  </div>
+                );
+              })}
 
               <a
                 href="#"
