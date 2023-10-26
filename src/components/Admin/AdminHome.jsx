@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./adminHome.css";
 import AdminProducts from "./AdminProd";
+import Orders from "./adminPages/Orders";
 function AdminHome() {
   const [selected, setSelected] = useState("dashboard");
 
@@ -20,37 +21,37 @@ function AdminHome() {
           <li class="active" onClick={() => setSelected("dashboard")}>
             <a href="#">
               <i class="bx bxs-dashboard"></i>
-              <span class="text">Dashboard</span>
+              <h1>Dashboard</h1>
             </a>
           </li>
           <li onClick={() => setSelected("verification")}>
             <a href="#">
               <i class="bx bxs-shopping-bag-alt"></i>
-              <span class="text">Verifications</span>
+              <h1>Verifications</h1>
             </a>
           </li>
-          <li>
+          <li onClick={() => setSelected("orders")}>
             <a href="#">
               <i class="bx bxs-doughnut-chart"></i>
-              <span class="text">Analytics</span>
+              <h1>Orders</h1>
             </a>
           </li>
           <li>
             <a href="#">
               <i class="bx bxs-message-dots"></i>
-              <span class="text">Message</span>
+              <h1>Message</h1>
             </a>
           </li>
           <li onClick={() => setSelected("providers")}>
             <a href="#">
               <i class="bx bxs-server"></i>
-              <span class="text">Providers</span>
+              <h1>Providers</h1>
             </a>
           </li>
           <li onClick={() => setSelected("users")}>
             <a href="#">
               <i class="bx bxs-group"></i>
-              <span class="text">Customers</span>
+              <h1>Customers</h1>
             </a>
           </li>
         </ul>
@@ -58,13 +59,13 @@ function AdminHome() {
           <li>
             <a href="#">
               <i class="bx bxs-cog"></i>
-              <span class="text">Settings</span>
+              <h1>Settings</h1>
             </a>
           </li>
           <li>
             <a href="#" class="logout">
               <i class="bx bxs-log-out-circle"></i>
-              <span class="text">Logout</span>
+              <h1>Logout</h1>
             </a>
           </li>
         </ul>
@@ -95,6 +96,7 @@ function AdminHome() {
         {selected === "users" && <AdminProducts />}
         {selected === "providers" && <AdminProducts />}
         {selected === "verification" && <AdminProducts />}
+        {selected === "orders" && <Orders />}
         {selected === "dashboard" && (
           <>
             <main>
