@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./adminHome.css";
 import AdminProducts from "./AdminProd";
 import Orders from "./adminPages/Orders";
+import GetInTouch from "./adminPages/GetInTouch";
 function AdminHome() {
   const [selected, setSelected] = useState("dashboard");
 
@@ -36,10 +37,10 @@ function AdminHome() {
               <h1>Orders</h1>
             </a>
           </li>
-          <li>
+          <li onClick={() => setSelected("getintouch")}>
             <a href="#">
               <i class="bx bxs-message-dots"></i>
-              <h1>Message</h1>
+              <h1>Get In Touch</h1>
             </a>
           </li>
           <li onClick={() => setSelected("providers")}>
@@ -97,6 +98,7 @@ function AdminHome() {
         {selected === "providers" && <AdminProducts />}
         {selected === "verification" && <AdminProducts />}
         {selected === "orders" && <Orders />}
+        {selected === "getintouch" && <GetInTouch />}
         {selected === "dashboard" && (
           <>
             <main>
