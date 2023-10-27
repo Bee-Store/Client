@@ -442,7 +442,6 @@ export const addToCartAsync = createAsyncThunk('cart/addToCart', async (product,
   const { user } = getState();
   if (user) {
     const response = await axios.post(`http://localhost:5000/api/cart/add`, { userId: user.id, product, quantity: 1 }, { headers: { Authorization: `Bearer ${user.token}` } });
-    console.log(user)
     return response.data;
   } else {
     // If the user is not logged in, add the product to the cart in local storage
@@ -462,7 +461,6 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async (_, { getState
   const { user } = getState();
   if (user) {
     const response = await axios.get(`http://localhost:5000/api/cart/${user.id}`);
-  console.log(user)
     return response.data;
   } else {
     // If the user is not logged in, get the cart from local storage
@@ -473,15 +471,18 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async (_, { getState
 // Async action to sync the cart with the backend
 export const syncCart = createAsyncThunk('cart/syncCart', async (_, { getState }) => {
   const { user, cart } = getState();
- console.log(user)
   if (user) {
+    console.log(cart)
+    // const cartToSend = cart.length > 0 ? cart : []; 
     const response = await axios.post(
-      /*`http://localhost:5000/api/cart/merge`*/ `http://localhost:5000/api/admin/test`,
-      { userId: user.id, tempCart: cart }
+      /*`http://localhost:5000/api/cart/merge`*/ `http://localhost:5000/api/mpesa/stk`,
+      { user, tempCart: cart }
     );
-    return response.data;
+    console.log(console.log(response.data))
+    // return response.data;
   } else {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log("Not found")
+    // localStorage.setItem('cart', JSON.stringify(cart));
   }
 });
 
@@ -541,5 +542,11 @@ const cartSlice = createSlice({
 });
 
 export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
-export const selectTotalAmount = state => state.cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+  export const selectTotalAmount = (state) => {
+    return state.cart.reduce(
+      (total, item) => total + item.product.price * item.quantity,
+      0
+    );
+  };
+
 export default cartSlice.reducer;

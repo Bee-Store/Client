@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 :root {
   --poppins: "Poppins", sans-serif;
   --lato: "Lato", sans-serif;
@@ -21,7 +20,6 @@
   --orange: #fd7238;
   --light-orange: #ffe0d3;
 }
-
 
 /* SIDEBAR */
 #sidebar {
@@ -357,19 +355,19 @@
   background: var(--light-orange);
   color: var(--orange);
 }
-.text .accept-request{
-    padding: 0.4rem 0.8rem;
-background-color: rgb(62, 176, 62);
-border-radius: 3px;
-color: #fff;
+.text .accept-request {
+  padding: 0.4rem 0.8rem;
+  background-color: rgb(62, 176, 62);
+  border-radius: 3px;
+  color: #fff;
 }
-.text .reject-request{
-    padding: 0.4rem 1rem;
-    margin-left: 1rem;
-    background-color: red;
-    color: #fff;
-    border-radius: 3px;
-    }
+.text .reject-request {
+  padding: 0.4rem 1rem;
+  margin-left: 1rem;
+  background-color: red;
+  color: #fff;
+  border-radius: 3px;
+}
 #content main .box-info li .text h3 {
   font-size: 24px;
   font-weight: 600;
@@ -516,7 +514,6 @@ color: #fff;
   }
 }
 @media screen and (max-width: 576px) {
-
   #sidebar ~ #content {
     width: calc(100% - 60px);
     left: 60px;
