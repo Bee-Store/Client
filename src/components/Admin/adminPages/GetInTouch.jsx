@@ -32,6 +32,23 @@ export default function GetInTouch() {
               <Text pl={54} pt="sm" size="sm">
                 {message.message}
               </Text>
+              <button
+                className="px-3 py-2 bg-red-600 text-black"
+                onClick={() => {
+                  fetch(
+                    `${import.meta.env.VITE_BASE_URL}contact/${message._id}`,
+                    {
+                      method: "DELETE",
+                    }
+                  )
+                    .then((res) => res.json())
+                    .then((data) => {
+                      console.log(data);
+                    });
+                }}
+              >
+                Delete
+              </button>
             </div>
           );
         })}
