@@ -13,7 +13,6 @@ export default function GetInTouch() {
     <div className="mt-7 ml-12">
       {messages &&
         messages.map((message, index) => {
-          console.log(message._id)
           return (
             <div key={index}>
               <Group>
@@ -36,11 +35,16 @@ export default function GetInTouch() {
               <button
                 className="px-3 py-2 bg-red-600 text-black"
                 onClick={() => {
-                  fetch(`${import.meta.env.VITE_BASE_URL}contact/${message._id}`,{
-                    method: "DELETE",
-                  }).then((res) => res.json()).then((data) =>{
-                    console.log(data)
-                  });
+                  fetch(
+                    `${import.meta.env.VITE_BASE_URL}contact/${message._id}`,
+                    {
+                      method: "DELETE",
+                    }
+                  )
+                    .then((res) => res.json())
+                    .then((data) => {
+                      console.log(data);
+                    });
                 }}
               >
                 Delete
