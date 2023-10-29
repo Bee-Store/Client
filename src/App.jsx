@@ -22,6 +22,11 @@ const Landing = lazy(() => import("./Landing"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Error = lazy(() => import("./pages/error/Error"));
 
+// Admin auth pages
+// Admin login page
+// import AdminLogin from "./pages/auth/admin/login/AdminLogin";
+const AdminLogin = lazy(() => import("./pages/auth/admin/login/AdminLogin"));
+
 export default function App() {
   const [count, setCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -108,6 +113,16 @@ export default function App() {
             element={
               <React.Suspense fallback={<Load />}>
                 <Error />
+              </React.Suspense>
+            }
+          />
+
+          {/* Admin pages */}
+          <Route
+            path="/auth/admin/login"
+            element={
+              <React.Suspense fallback={<Load />}>
+                <AdminLogin />
               </React.Suspense>
             }
           />
