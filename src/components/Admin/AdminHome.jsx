@@ -3,6 +3,7 @@ import "./adminHome.css";
 import AdminProducts from "./AdminProd";
 import Orders from "./adminPages/Orders";
 import GetInTouch from "./adminPages/GetInTouch";
+import Customer from "./adminPages/customers/Customer";
 function AdminHome() {
   const [selected, setSelected] = useState("dashboard");
 
@@ -94,7 +95,7 @@ function AdminHome() {
             <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g" />
           </a>
         </nav>
-        {selected === "users" && <AdminProducts />}
+        {selected === "users" && <Customer />}
         {selected === "providers" && <AdminProducts />}
         {selected === "verification" && <AdminProducts />}
         {selected === "orders" && <Orders />}
