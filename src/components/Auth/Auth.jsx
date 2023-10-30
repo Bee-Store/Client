@@ -104,8 +104,16 @@ function Auth() {
     .then((response) => response.json())
     .then((data) => {
       if (data.data.access_token) {
-        dispatch(setUser({name: data.data.user.username,
-          email: data.data.user.email, access_token: data.data.access_token, id: data.data.user._id}))
+        console.log(data.data.user);
+        dispatch(
+          setUser({
+            name: data.data.user.username,
+            email: data.data.user.email,
+            access_token: data.data.access_token,
+            id: data.data.user._id,
+            is_admin: data.data.user.isAdmin,
+          })
+        );
           notifications.show({ title: "Login success", message: data.message });
           localStorage.removeItem('cart'); // Clear the local storage cart
           dispatch(syncCart()); // Sync the local storage cart with the backend after logging in
@@ -189,6 +197,13 @@ function Auth() {
                   }}
                 />
                 <input type="submit" name="" value="Login" />
+
+                <p class="signup">
+                  <a href="/auth/admin/login" onClick={toggleForm}>
+                    Login as Admin ?
+                  </a>
+                </p>
+
                 <p class="signup">
                   <a href="/forgot" onClick={toggleForm}>
                     Forgot Password ?

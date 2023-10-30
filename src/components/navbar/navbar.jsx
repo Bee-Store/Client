@@ -15,6 +15,7 @@ import clock from "./../../assets/landing/clock.svg";
 export default function Navbar() {
   const cartState = useSelector((state) => state.cart);
   const userState = useSelector((state) => state.user);
+  console.log(userState.is_admin);
   const navigate = useNavigate();
   const LoginOrLogOut = !userState.access_token ? (
     <button
@@ -167,7 +168,11 @@ export default function Navbar() {
           />
         </div>
         {/* For Links */}
-        <div className="navLinks">{navData}</div>
+        <div className="navLinks">
+          {userState.is_admin === true ? <NavLink to="/ahome">Dashboard</NavLink> : null}
+          
+          {navData}
+        </div>
 
         {/* For navbuttons */}
         <div className="navBtn">
