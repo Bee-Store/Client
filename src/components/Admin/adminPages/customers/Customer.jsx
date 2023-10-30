@@ -1,8 +1,7 @@
-// import { Group, Text } from "@mantine/core";
 import React, { useEffect, useState } from "react";
-import { Avatar, Text, Button, Paper } from "@mantine/core";
+import { Avatar, Text, Paper } from "@mantine/core";
 
-export default function Customer() {
+const Customer = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -16,7 +15,6 @@ export default function Customer() {
       <h1>This is where users will be displayed</h1>
       {users &&
         users.map((user, index) => {
-          console.log(user);
           return (
             <div key={index}>
               <Paper
@@ -46,4 +44,34 @@ export default function Customer() {
         })}
     </div>
   );
-}
+};
+
+export default Customer;
+
+// Export users array and its length separately
+export const useUserInformation = () => {
+  const [users, setUsers] = useState([]);
+  const [allOrders, setAllOrders] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BASE_URL}auth`)
+      .then((res) => res.json())
+      .then((data) => setUsers(data.data));
+  }, []);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BASE_URL}orders/all`)
+      .then((res) => res.json())
+      .then((data) => setAllOrders(data.data));
+  }, []);
+  
+  const totalAmountSum = allOrders && allOrders.reduce(
+    (accumulator, currentOrder) => {
+      return accumulator + currentOrder.totalAmount;
+    },
+    0
+  );
+
+
+  return { total: totalAmountSum, usersLength: users.length };
+};

@@ -3,7 +3,7 @@ import "./adminHome.css";
 import AdminProducts from "./AdminProd";
 import Orders from "./adminPages/Orders";
 import GetInTouch from "./adminPages/GetInTouch";
-import Customer from "./adminPages/customers/Customer";
+import Customer, { useUserInformation } from "./adminPages/customers/Customer";
 function AdminHome() {
   const [selected, setSelected] = useState("dashboard");
 
@@ -11,6 +11,8 @@ function AdminHome() {
   const toggleClass = () => {
     setActive(!isActive);
   };
+  const allUser = useUserInformation();
+  console.log(allUser);
 
   return (
     <div className="App">
@@ -136,14 +138,14 @@ function AdminHome() {
                 <li>
                   <i class="bx bxs-group"></i>
                   <span class="text">
-                    <h3>2834</h3>
+                    <h3>{allUser.usersLength}</h3>
                     <p>New users</p>
                   </span>
                 </li>
                 <li>
                   <i class="bx bxs-dollar-circle"></i>
                   <span class="text">
-                    <h3>$2543</h3>
+                    <h3>${allUser.total}</h3>
                     <p>Total Transactions</p>
                   </span>
                 </li>
