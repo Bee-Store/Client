@@ -168,8 +168,12 @@ export default function Navbar() {
         </div>
         {/* For Links */}
         <div className="navLinks">
-          {userState.is_admin === true ? <NavLink to="/ahome">Dashboard</NavLink> : null}
-          
+          {userState.is_admin === true ? (
+            <NavLink to="/ahome">Dashboard</NavLink>
+          ) : (
+            <NavLink to="/dashboard/user-dashboard">Dashboard</NavLink>
+          )}
+
           {navData}
         </div>
 

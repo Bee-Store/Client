@@ -15,6 +15,7 @@ import "./App.css";
 import Team from "./pages/team/Team";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword";
 import ForgotInput from "./pages/forgot-password/ForgotInput";
+import UserDash from "./pages/dashboard/user/UserDash";
 
 const Auth = lazy(() => import("./components/Auth/Auth"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
@@ -123,6 +124,16 @@ export default function App() {
             element={
               <React.Suspense fallback={<Load />}>
                 <AdminLogin />
+              </React.Suspense>
+            }
+          />
+
+          {/* USER DASHBOARD */}
+          <Route
+            path="/dashboard/user-dashboard"
+            element={
+              <React.Suspense fallback={<Load />}>
+                <UserDash />
               </React.Suspense>
             }
           />
