@@ -1,0 +1,79 @@
+.userDashboard{
+    display: flex;
+}
+a{
+    cursor: pointer;
+}
+.userDashboard .tabContent{
+    margin-top: 2em;
+    margin-left: 3em;
+}
+.navbar {
+  height: 700px;
+  width: 300px;
+  padding: 20px; /* Sample value for --mantine-spacing-md */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc; /* Sample value for --mantine-color-gray-3, --mantine-color-dark-4 */
+}
+
+.navbarMain {
+  flex: 1;
+}
+
+.header {
+  padding-bottom: 20px; /* Sample value for --mantine-spacing-md */
+  margin-bottom: calc(20px * 1.5);
+  border-bottom: 1px solid #ccc; /* Sample value for --mantine-color-gray-3, --mantine-color-dark-4 */
+}
+
+.footer {
+  padding-top: 20px; /* Sample value for --mantine-spacing-md */
+  margin-top: 20px; /* Sample value for --mantine-spacing-md */
+  border-top: 1px solid #ccc; /* Sample value for --mantine-color-gray-3, --mantine-color-dark-4 */
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px; /* Sample value for --mantine-font-size-sm */
+  color: #777; /* Sample value for --mantine-color-gray-7, --mantine-color-dark-1 */
+  padding: 4px 10px; /* Sample value for --mantine-spacing-xs, --mantine-spacing-sm */
+  border-radius: 4px; /* Sample value for --mantine-radius-sm */
+  font-weight: 500;
+}
+
+.linkIcon {
+  color: #999; /* Sample value for --mantine-color-gray-6, --mantine-color-dark-2 */
+  margin-right: 10px; /* Sample value for --mantine-spacing-sm */
+  width: 25px;
+  height: 25px;
+}
+
+
+/* Non-responsive styles */
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: row; /* For smaller screens, switch to a horizontal layout */
+    height: auto; /* Adjust height to fit content */
+    width: 100%; /* Take full width of the screen */
+  }
+
+  .navbarMain {
+    flex: initial; /* Adjust flex property for responsiveness */
+  }
+
+  .header,
+  .footer {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .link {
+    font-size: 12px; /* Decrease font size for smaller screens */
+    padding: 4px 8px; /* Adjust padding for smaller screens */
+    border-radius: 3px; /* Adjust border-radius for smaller screens */
+  }
+}
