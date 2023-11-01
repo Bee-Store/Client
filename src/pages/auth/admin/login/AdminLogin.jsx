@@ -16,6 +16,7 @@ import {
   Text,
   Anchor,
 } from "@mantine/core";
+import { IconX, IconCheck } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import classes from "./AuthenticationImage.module.css";
 import Navbar from "../../../../components/navbar/navbar";
@@ -44,9 +45,7 @@ export default function AdminLogin() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        if (data.data.access_token) {
-          console.log(data.data.user);
+        if (data.data) {
           dispatch(
             setUser({
               name: data.data.user.username,
@@ -56,10 +55,21 @@ export default function AdminLogin() {
               is_admin: data.data.user.isAdmin,
             })
           );
-          notifications.show({ title: "Login success", message: data.message });
+          notifications.show({
+            title: "Login success",
+            message: data.message,
+            icon: <IconCheck />,
+          });
           localStorage.removeItem("cart"); // Clear the local storage cart
           dispatch(syncCart()); // Sync the local storage cart with the backend after logging in
           navigate("/");
+        } else {
+          notifications.show({
+            title: "Login Failed",
+            color: "red",
+            message: data.message,
+            icon: <IconX />,
+          });
         }
       })
       .catch((error) => console.error("Error:", error));
