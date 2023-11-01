@@ -30,7 +30,7 @@ export default function Navbar() {
       className="loginbtn"
       onClick={() => {
         localStorage.clear();
-        navigate("/auth");
+        window.location.reload();
       }}
     >
       Log Out

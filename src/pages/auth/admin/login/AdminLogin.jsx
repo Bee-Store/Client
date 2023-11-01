@@ -45,9 +45,7 @@ export default function AdminLogin() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.data) {
-          console.log(data.data.user);
           dispatch(
             setUser({
               name: data.data.user.username,
