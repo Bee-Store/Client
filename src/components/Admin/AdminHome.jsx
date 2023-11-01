@@ -4,6 +4,7 @@ import AdminProducts from "./AdminProd";
 import Orders from "./adminPages/Orders";
 import GetInTouch from "./adminPages/GetInTouch";
 import Customer, { useUserInformation } from "./adminPages/customers/Customer";
+import { useNavigate } from "react-router";
 function AdminHome() {
   const [selected, setSelected] = useState("dashboard");
 
@@ -13,6 +14,7 @@ function AdminHome() {
   };
   const allUser = useUserInformation();
   console.log(allUser);
+  const navigate = useNavigate();
 
   return (
     <div className="App">
@@ -69,7 +71,15 @@ function AdminHome() {
           <li>
             <a href="#" class="logout">
               <i class="bx bxs-log-out-circle"></i>
-              <h1>Logout</h1>
+              <h1
+                onClick={() => {
+                  localStorage.clear();
+                  navigate("/");
+                  window.location.reload();
+                }}
+              >
+                Logout
+              </h1>
             </a>
           </li>
         </ul>
