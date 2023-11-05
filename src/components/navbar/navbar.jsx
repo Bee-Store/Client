@@ -17,6 +17,7 @@ export default function Navbar() {
   const userState = useSelector((state) => state.user);
   const navigate = useNavigate();
   const LoginOrLogOut = !userState.access_token ? (
+    
     <button
       className="loginbtn"
       onClick={() => {
@@ -168,11 +169,13 @@ export default function Navbar() {
         </div>
         {/* For Links */}
         <div className="navLinks">
-          {userState.is_admin === true ? (
-            <NavLink to="/ahome">Dashboard</NavLink>
-          ) : (
-            <NavLink to="/dashboard/user-dashboard">Dashboard</NavLink>
-          )}
+          {userState.access_token ? (
+            userState.is_admin === true ? (
+              <NavLink to="/ahome">Dashboard</NavLink>
+            ) : (
+              <NavLink to="/dashboard/user-dashboard">Dashboard</NavLink>
+            )
+          ) : null}
 
           {navData}
         </div>
