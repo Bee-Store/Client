@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { Group, Code, Paper } from "@mantine/core";
 import {
   IconBellRinging,
@@ -12,12 +13,14 @@ import {
   IconLogout,
 } from "@tabler/icons-react";
 import classes from "./userdash.module.css";
+import Orders from "./pages/Orders";
+import Setting from "./pages/Setting";
 
 const tabsData = [
   {
     label: "Notifications",
     icon: IconBellRinging,
-    content: "Content for Notifications",
+    content: <Orders />,
   },
   { label: "Billing", icon: IconReceipt2, content: "Content for Billing" },
   { label: "Security", icon: IconFingerprint, content: "Content for Security" },
@@ -35,11 +38,12 @@ const tabsData = [
   {
     label: "Other Settings",
     icon: IconSettings,
-    content: "Content for Other Settings",
+    content: <Setting />,
   },
 ];
 
 export default function UserDash() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Billing");
 
   const tabs = tabsData.map((item) => (
@@ -74,17 +78,16 @@ export default function UserDash() {
             className={classes.link}
             onClick={(event) => event.preventDefault()}
           >
-            <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-            <span>Change account</span>
-          </a>
-
-          <a
-            href="#"
-            className={classes.link}
-            onClick={(event) => event.preventDefault()}
-          >
             <IconLogout className={classes.linkIcon} stroke={1.5} />
-            <span>Logout</span>
+            <span
+              onClick={() => {
+                localStorage.clear();
+                navigate("/");
+                window.location.reload();
+              }}
+            >
+              Logout
+            </span>
           </a>
         </div>
       </nav>
