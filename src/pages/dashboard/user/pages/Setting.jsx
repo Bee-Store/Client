@@ -38,14 +38,17 @@ export default function Setting() {
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form
           onSubmit={form.onSubmit((values) => {
-            console.log(values)
+            console.log(values.oldPassword);
             fetch(`${import.meta.env.VITE_BASE_URL}auth/user`, {
               method: "POST",
               headers: {
                 Authorization: `Bearer ${userState.access_token}`,
+                "Content-Type": "application/json",
               },
-              contentType: "application/json",
-              body: JSON.stringify(values),
+              body: JSON.stringify({
+                oldPassword: values.oldPassword,
+                newPassword: values.newPassword,
+              }),
             })
               .then((res) => res.json())
               .then((data) => console.log(data));
