@@ -11,6 +11,7 @@ import {
   Button,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { notifications } from "@mantine/notifications";
 import { useSelector } from "react-redux";
 
 export default function Setting() {
@@ -51,7 +52,12 @@ export default function Setting() {
               }),
             })
               .then((res) => res.json())
-              .then((data) => console.log(data));
+              .then((data) =>
+                notifications.show({
+                  title: "Success",
+                  message: data.message,
+                })
+              );
           })}
         >
           <PasswordInput
