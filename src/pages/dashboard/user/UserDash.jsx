@@ -20,18 +20,6 @@ const tabsData = [
     icon: IconReceipt2,
     content: <Orders />,
   },
-  { label: "Security", icon: IconFingerprint, content: "Content for Security" },
-  { label: "SSH Keys", icon: IconKey, content: "Content for SSH Keys" },
-  {
-    label: "Databases",
-    icon: IconDatabaseImport,
-    content: <h1>Hello</h1>,
-  },
-  {
-    label: "Authentication",
-    icon: Icon2fa,
-    content: "Content for Authentication",
-  },
   {
     label: "Profile",
     icon: IconSettings,
