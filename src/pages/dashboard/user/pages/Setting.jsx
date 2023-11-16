@@ -52,12 +52,21 @@ export default function Setting() {
               }),
             })
               .then((res) => res.json())
-              .then((data) =>
+              .then((data) => {
                 notifications.show({
                   title: "Success",
                   message: data.message,
-                })
-              );
+                });
+                if (data === "Token is not valid") {
+                  notifications.show({
+                    title: data,
+                    message: "Token has expired, login to proceed.",
+                  });
+                  localStorage.clear();
+                  navigate("/");
+                  window.location.reload();
+                }
+              });
           })}
         >
           <PasswordInput

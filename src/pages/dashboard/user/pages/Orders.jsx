@@ -21,6 +21,7 @@ export default function Orders() {
             title: data,
             message: "Token has expired, login to proceed.",
           });
+          localStorage.clear();
           navigate("/");
           window.location.reload();
         }
