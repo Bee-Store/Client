@@ -2,14 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Group, Code, Paper } from "@mantine/core";
 import {
-  IconBellRinging,
   IconFingerprint,
   IconKey,
   IconSettings,
   Icon2fa,
   IconDatabaseImport,
   IconReceipt2,
-  IconSwitchHorizontal,
   IconLogout,
 } from "@tabler/icons-react";
 import classes from "./userdash.module.css";
@@ -18,11 +16,10 @@ import Setting from "./pages/Setting";
 
 const tabsData = [
   {
-    label: "Notifications",
-    icon: IconBellRinging,
+    label: "Oder",
+    icon: IconReceipt2,
     content: <Orders />,
   },
-  { label: "Billing", icon: IconReceipt2, content: "Content for Billing" },
   { label: "Security", icon: IconFingerprint, content: "Content for Security" },
   { label: "SSH Keys", icon: IconKey, content: "Content for SSH Keys" },
   {
@@ -36,7 +33,7 @@ const tabsData = [
     content: "Content for Authentication",
   },
   {
-    label: "Other Settings",
+    label: "Profile",
     icon: IconSettings,
     content: <Setting />,
   },
