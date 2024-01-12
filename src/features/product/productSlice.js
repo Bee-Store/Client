@@ -42,26 +42,29 @@ export const fetchProduct = createAsyncThunk('products/fetchProduct', async(id) 
     return data
 })
 
-export const addProductAsync = createAsyncThunk('products/addProduct', async(product) => {
+export const addProductAsync = createAsyncThunk(
+  "products/addProduct",
+  async (image, price, name) => {
     // Create a FormData instance
     const formData = new FormData();
-  
+
     // Append the image file under the 'image' field
-    formData.append('image', product.image);
-  
+    formData.append("image", image);
+
     // Append the other product data
-    formData.append('name', product.name);
-    formData.append('price', product.price);
-  
+    formData.append("name", name);
+    formData.append("price", price);
+
     // Send a POST request to the /api/products endpoint with the form data
-    const res = await fetch('http://127.0.0.1:5000/api/products', {
-      method: 'POST',
+    const res = await fetch("http://127.0.0.1:5000/api/products", {
+      method: "POST",
       body: formData,
     });
-  
+
     const data = await res.json();
     return data;
-  });
+  }
+);
   
 
 

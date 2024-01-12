@@ -1,32 +1,31 @@
-import React, { useState, useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { useDropzone } from "react-dropzone";
-import { addProductAsync } from "../../features/product/productSlice";
+import React, { useState } from "react";
+
 import "./admin.css";
 
 const AddProductModal = () => {
   const [showModal, setShowModal] = useState(false);
-  const [newProduct, setNewProduct] = useState({
-    name: "",
-    price: "",
-    image: "",
-  });
-  const dispatch = useDispatch();
 
-  const onDrop = useCallback((acceptedFiles) => {
-    setNewProduct({ ...newProduct, image: acceptedFiles[0] });
-  }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const [fileName, setFileName] = useState();
+  const [filePrice, setFilePrice] = useState();
+  const [fileUpload, setFileUpload] = useState();
 
-  const handleInputChange = (event) => {
-    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(addProductAsync(newProduct));
-    setNewProduct({ name: "", price: "", image: "" });
-    setShowModal(false);
+    const formData = new FormData();
+
+    // Append the image file under the 'image' field
+    formData.append("image", fileUpload);
+
+    // Append the other product data
+    formData.append("name", fileName);
+    formData.append("price", filePrice);
+
+    fetch("http://127.0.0.1:5000/api/products", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   };
 
   return (
@@ -43,8 +42,7 @@ const AddProductModal = () => {
               <input
                 type="text"
                 name="name"
-                value={newProduct.name}
-                onChange={handleInputChange}
+                onChange={(e) => setFileName(e.target.value)}
                 className="border-2 focus:border-yellow-300"
                 required
               />
@@ -54,23 +52,16 @@ const AddProductModal = () => {
                 type="number"
                 name="price"
                 className="border-2 focus:border-yellow-300"
-                value={newProduct.price}
-                onChange={handleInputChange}
+                onChange={(e) => setFilePrice(e.target.value)}
                 required
               />
 
               <label>Image: </label>
-              <div
-                {...getRootProps()}
-                className="image-upload-box px-4 rounded-md font-bold"
-              >
-                <input name="image" {...getInputProps()} />
-                {isDragActive ? (
-                  <p>Drop the files here ...</p>
-                ) : (
-                  <p>Drag 'n' drop some files here, or click to select files</p>
-                )}
-              </div>
+              <input
+                type="file"
+                placeholder="Upload a file here..."
+                onChange={(e) => setFileUpload(e.target.files[0])}
+              />
               <span className="close-modal" onClick={() => setShowModal(false)}>
                 ×
               </span>
