@@ -17,9 +17,7 @@ import {
 import "./admin.css";
 
 const AdminProducts = () => {
-  const [showModal, setShowModal] = useState(false);
   const products = useSelector((state) => state.products);
-  console.log(products);
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
   const [isEditing, setIsEditing] = useState(false);

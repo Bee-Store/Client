@@ -7,6 +7,7 @@ export default function Orders() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const userState = useSelector((state) => state.user);
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}orders/customer`, {
       headers: {
@@ -29,26 +30,36 @@ export default function Orders() {
       });
   }, []);
 
+  console.log(products);
+
   return (
     <div className="flex flex-col gap-[4em] items-start justify-center mt-[3em]">
       {products &&
-        products.map((product, index) => {
-          return (
-            <div
-              key={index}
-              className="flex justify-center items-center gap-[15px]"
-            >
-              <img
-                src={product.product.image}
-                alt=""
-                className="w-[200px] rounded-md"
-              />
-              <span>{product.product.name}</span>
-              <span>Ksh {product.product.price}</span>
-            </div>
-          );
+        products.map((product, productIndex) => {
+          const nestedProduct = product.products;
+
+          return nestedProduct.map((item, index) => {
+            console.log(item);
+            return (
+              <div
+                key={index}
+                className="flex flex-col justify-center items-center gap-[15px]"
+              >
+                <img
+                  src={item.product.image}
+                  alt=""
+                  className="w-[200px] rounded-md"
+                />
+
+                <span>{item.quantity} units</span>
+                <div className="flex gap-2">
+                  <span>{item.product.name}</span>
+                  <span>Ksh {item.product.price}</span>{" "}
+                </div>
+              </div>
+            );
+          });
         })}
     </div>
   );
 }
-// http://localhost:5000/api/orders/customer

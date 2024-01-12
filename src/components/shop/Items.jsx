@@ -35,11 +35,11 @@ const Items = () => {
                 const item = cartState && cartState.find(item => item.product._id === product._id);
                 return (
                   <div class="item" key={index}> {/* Add unique key prop here */}
-                    <img src={`${product.image}`} alt="Raw honey" className='img'
-                     style={{
-                      width: '100%', 
-                      height: '10rem', 
-                    }}
+                    <img src={`${product.image}`} alt="Raw honey"
+                    //  style={{
+                    //   width: '100%', 
+                    //   height: '10rem', 
+                    // }}
                     />
                     <span className='prod-desc'>
                       <h2>{product.name}</h2>

@@ -5,6 +5,7 @@ import Orders from "./adminPages/Orders";
 import GetInTouch from "./adminPages/GetInTouch";
 import Customer, { useUserInformation } from "./adminPages/customers/Customer";
 import { useNavigate } from "react-router";
+import { IconBrandProducthunt } from "@tabler/icons-react";
 function AdminHome() {
   const [selected, setSelected] = useState("dashboard");
 
@@ -30,10 +31,10 @@ function AdminHome() {
               <h1>Dashboard</h1>
             </a>
           </li>
-          <li onClick={() => setSelected("verification")}>
+          <li onClick={() => setSelected("product")}>
             <a href="#">
-              <i class="bx bxs-shopping-bag-alt"></i>
-              <h1>Verifications</h1>
+              <IconBrandProducthunt size={20} />
+              <h1>Products</h1>
             </a>
           </li>
           <li onClick={() => setSelected("orders")}>
@@ -109,7 +110,7 @@ function AdminHome() {
         </nav>
         {selected === "users" && <Customer />}
         {selected === "providers" && <AdminProducts />}
-        {selected === "verification" && <AdminProducts />}
+        {selected === "product" && <AdminProducts />}
         {selected === "orders" && <Orders />}
         {selected === "getintouch" && <GetInTouch />}
         {selected === "dashboard" && (
