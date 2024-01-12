@@ -8,6 +8,8 @@ export default function Orders() {
   const [products, setProducts] = useState([]);
   const userState = useSelector((state) => state.user);
 
+  
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}orders/customer`, {
       headers: {
@@ -39,23 +41,21 @@ export default function Orders() {
           const nestedProduct = product.products;
 
           return nestedProduct.map((item, index) => {
-            console.log(item);
+            console.log(product.status)
             return (
               <div
                 key={index}
-                className="flex flex-col justify-center items-center gap-[15px]"
+                className="flex flex-col justify-center items-center gap-[4px]"
               >
                 <img
                   src={item.product.image}
                   alt=""
-                  className="w-[200px] rounded-md"
+                  className="w-[120px] rounded-md"
                 />
-
                 <span>{item.quantity} units</span>
-                <div className="flex gap-2">
-                  <span>{item.product.name}</span>
-                  <span>Ksh {item.product.price}</span>{" "}
-                </div>
+                <span>Product: {item.product.name}</span>
+                <span>Amount: Ksh {item.product.price}</span>{" "}
+                <span>Status: {product.status}</span>{" "}
               </div>
             );
           });

@@ -8,21 +8,6 @@ export default function Orders() {
       .then((data) => setOrders(data.data));
   }, []);
 
-  function formatDate(inputDate) {
-    const date = new Date(inputDate);
-
-    const day = date.getDate();
-
-    const month = date.toLocaleString("default", {
-      month: "short",
-    });
-
-    const year = date.getFullYear();
-    // Get the last two digits of the year
-    const formattedDate = `${day}th ${month}`;
-    console.log(formattedDate);
-    return formattedDate;
-  }
   return (
     <div className="mt-7 ml-12">
       <table className="flex gap-5">
@@ -31,9 +16,8 @@ export default function Orders() {
             <th>Id</th>
             <th>Products</th>
             <th>Amount</th>
-            <th>Customer</th> {/* user info */}
+            <th>Customer</th>
             <th>Status</th>
-            <th>Date</th>
           </tr>
         </thead>
       </table>
@@ -49,9 +33,8 @@ export default function Orders() {
                   })}
               </td>
               <td>{item.totalAmount}</td>
-              <td>{item.user.username}</td>
+              <td>{item.customerId.username}</td>
               <td>{item.status}</td>
-              <td>{formatDate(item.orderDate)}</td>
             </tr>
           );
         })}

@@ -6,6 +6,7 @@ import GetInTouch from "./adminPages/GetInTouch";
 import Customer, { useUserInformation } from "./adminPages/customers/Customer";
 import { useNavigate } from "react-router";
 import { IconBrandProducthunt } from "@tabler/icons-react";
+import { useEffect } from "react";
 function AdminHome() {
   const [selected, setSelected] = useState("dashboard");
 
@@ -14,8 +15,14 @@ function AdminHome() {
     setActive(!isActive);
   };
   const allUser = useUserInformation();
-  console.log(allUser);
   const navigate = useNavigate();
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BASE_URL}orders/all`)
+      .then((res) => res.json())
+      .then((data) => setOrders(data.data));
+  }, []);
+  console.log({ orders });
 
   return (
     <div className="App">
@@ -142,8 +149,8 @@ function AdminHome() {
                 <li>
                   <i class="bx bxs-calendar-check"></i>
                   <span class="text">
-                    <h3>1020</h3>
-                    <p>Completed Services</p>
+                    <h3>{orders.length}</h3>
+                    <p>Orders</p>
                   </span>
                 </li>
                 <li>

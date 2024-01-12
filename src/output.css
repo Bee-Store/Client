@@ -798,6 +798,14 @@ video {
   width: 100%;
 }
 
+.w-\[20px\] {
+  width: 20px;
+}
+
+.w-\[120px\] {
+  width: 120px;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -862,6 +870,10 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-\[4px\] {
+  gap: 4px;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
