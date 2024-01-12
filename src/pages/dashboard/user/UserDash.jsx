@@ -1,22 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Group, Code, Paper } from "@mantine/core";
-import {
-  IconFingerprint,
-  IconKey,
-  IconSettings,
-  Icon2fa,
-  IconDatabaseImport,
-  IconReceipt2,
-  IconLogout,
-} from "@tabler/icons-react";
+import { IconSettings, IconReceipt2, IconLogout } from "@tabler/icons-react";
 import classes from "./userdash.module.css";
 import Orders from "./pages/Orders";
 import Setting from "./pages/Setting";
+import { Link } from "react-router-dom";
+import { IconArrowBackUp } from "@tabler/icons-react";
 
 const tabsData = [
   {
-    label: "Oder",
+    label: "Order",
     icon: IconReceipt2,
     content: <Orders />,
   },
@@ -58,6 +52,17 @@ export default function UserDash() {
         </div>
 
         <div className={classes.footer}>
+          <a
+            href="/"
+            className={classes.link}
+          >
+            <IconArrowBackUp className={classes.linkIcon} stroke={1.5} />
+            <span
+            >
+              Back
+            </span>
+          </a>
+
           <a
             href="#"
             className={classes.link}
