@@ -28,7 +28,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         build-dir: './build'
         comment-on-commit: true
+        netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
         
         
         
-# netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
