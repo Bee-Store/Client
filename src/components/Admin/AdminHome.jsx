@@ -22,7 +22,6 @@ function AdminHome() {
       .then((res) => res.json())
       .then((data) => setOrders(data.data));
   }, []);
-  console.log({ orders });
 
   return (
     <div className="App">
