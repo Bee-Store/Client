@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../features/product/productSlice";
-import Navbar from "../navbar/navbar";
+
 import {
   addToCart,
   removeFromCart,
