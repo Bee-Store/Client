@@ -1,11 +1,3 @@
-// import React from 'react'
-
-// export default function AdminLogin() {
-//   return (
-//     <div>AdminLogin</div>
-//   )
-// }
-
 import {
   Paper,
   TextInput,
@@ -78,7 +70,10 @@ export default function AdminLogin() {
     <div className={classes.wrapper}>
       <Navbar />
       <Paper className={classes.form} radius={0} p={30}>
-        <form onSubmit={form.onSubmit((values) => Login(values))}>
+        <form
+          onSubmit={form.onSubmit((values) => Login(values))}
+          className="mt-[5em]"
+        >
           <Title
             order={2}
             className={classes.title}
@@ -102,17 +97,17 @@ export default function AdminLogin() {
             size="md"
             {...form.getInputProps("password")}
           />
-          <Button fullWidth mt="xl" size="md" type="submit">
+          <button className="bg-blue-500 text-white py-1 px-10 rounded-md mt-[1em]" type="submit">
             Login
-          </Button>
+          </button>
         </form>
 
-        <Text ta="center" mt="md">
-          Don&apos;t have an account?{" "}
-          <Anchor href="#" fw={700} onClick={(event) => event.preventDefault()}>
+        {/* <Text ta="center" mt="md">
+          Don&apos;t have an account?
+          <Anchor href="#" fw={700} onClick={(event) => event.preventDefault()} ml={6}>
             Register
           </Anchor>
-        </Text>
+        </Text> */}
       </Paper>
     </div>
   );
