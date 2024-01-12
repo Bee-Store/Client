@@ -13,7 +13,7 @@ export default function AboutUs() {
       <Navbar />
       <HealthBenefit />
       <div
-      className="about-info"
+        className="about-info"
         style={{
           backgroundColor: "#EBA937",
           padding: "2em",
@@ -23,17 +23,26 @@ export default function AboutUs() {
           fontSize: "25px",
         }}
       >
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          mollitia, molestiae quas vel sint commodi <br /> repudiandae
-          consequuntur voluptatum laborum numquam blanditiis harum quisquam eius
-          sed odit <br />
-          fugiat iusto fuga praesentium optio, eaque rerum!Provident similique
-          accusantium nemo autem. Veritatis <br /> obcaecati tenetur iure eius
-          earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid
-          culpaofficia <br /> aut! Impedit sit sunt quaerat, odit, tenetur
-          error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.
-          <br /> Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
+        <span className="text-white">
+          Welcome to Bee Kissed Honey, where we take pride in delivering
+          sweet-tasting and healthy honey straight from the hive to your table.
+          Our passion for bees and their incredible craftsmanship is reflected
+          in every jar we produce.
+          <br /> At Bee Kissed Honey, we believe in the natural goodness of
+          honey, untouched by artificial additives or preservatives.
+          <br /> Our bees roam freely in pristine environments, collecting
+          nectar from blossoms to create a pure and delicious honey that not
+          only tantalizes your taste buds but also provides numerous health
+          benefits.
+          <br /> Discover the richness of our honey, carefully crafted with love
+          and dedication. <br />
+          We are committed to sustainability, ensuring that our beekeeping
+          practices promote the well-being of the bees and the environment.{" "}
+          <br />
+          Bee Kissed Honey is more than just a sweetener; it's a commitment to
+          quality, health, and the vital role bees play in our ecosystem. <br />
+          Indulge in the golden goodness of Bee Kissed Honey and experience the
+          unparalleled taste of nature's finest creation.
         </span>
       </div>
 
@@ -67,11 +76,13 @@ export default function AboutUs() {
               >
                 <span>Our honey is harvested in these areas:-</span>
 
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(2, auto)",
-                  gap: "10px"
-                  }}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, auto)",
+                    gap: "10px",
+                  }}
+                >
                   <span>Meru</span>
                   <span>Tharaka Nithi</span>
                   <span>Baringo</span>

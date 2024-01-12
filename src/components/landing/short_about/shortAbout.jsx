@@ -48,17 +48,11 @@ export default function ShortAbout() {
               fontSize: "20px",
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
-            Maxime mollitia, molestiae quas vel sint commodi <br />
-            repudiandae consequuntur voluptatum laborum <br /> numquam
-            blanditiis harum quisquam eius sed odit <br /> fugiat iusto fuga
-            praesentium optio, eaque rerum! <br /> Provident similique
-            accusantium nemo autem. Veritatis <br />
-            obcaecati tenetur iure eius earum ut molestias <br /> architecto
-            voluptate aliquam nihil, eveniet aliquid culpa <br /> officia aut!
-            Impedit sit sunt quaerat, odit, <br /> tenetur error, harum nesciunt
-            ipsum debitis quas aliquid. <br /> Reprehenderit, quia. Quo neque
-            error repudiandae fuga? <br /> Ipsa laudantium molestias eos
+            Crafted by the diligent wings of our bees, <br /> Bee Kissed Honey
+            is a pure delight, free from artificial additives <br /> or
+            preservatives. We take pride in our <br /> responsible beekeeping
+            practices, ensuring <br /> the well-being of our buzzing companions
+            and the environment.
           </span>
 
           <div>
