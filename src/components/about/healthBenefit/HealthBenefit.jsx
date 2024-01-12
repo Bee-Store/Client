@@ -6,7 +6,6 @@ export default function HealthBenefit() {
     <div className="healthBenefit">
       <div>
         <span>Health Benefits of honey</span>
-        <button>Learn More</button>
       </div>
     </div>
   );
