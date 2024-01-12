@@ -75,7 +75,9 @@ function App() {
                     <span>{item.name}</span>
                     <span>{item.info}</span>
                   </div>
-                  <button>{item.name}</button>
+                  <button className="bg-[#eba937] p-[10px] text-white">
+                    {item.name}
+                  </button>
                 </div>
               );
             })}
@@ -87,13 +89,17 @@ function App() {
         <div>
           <img src={raw} alt="raw" />
           <span>Real. Raw. Honey Jars</span>
-          <button>View Products</button>
+          <button className="bg-[#eba937] p-[10px] text-white">
+            View Products
+          </button>
         </div>
 
         <div>
           <img src={kidhoney} alt="kidhoney" />
           <span>Real. Raw. Honey Sticks</span>
-          <button>View Products</button>
+          <button className="bg-[#eba937] p-[10px] text-white">
+            View Products
+          </button>
         </div>
       </div>
 

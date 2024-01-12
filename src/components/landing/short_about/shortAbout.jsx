@@ -72,9 +72,11 @@ export default function ShortAbout() {
                 gap: "10px",
                 width: "45%",
                 marginTop: "2rem",
+                backgroundColor: "#eba937",
+                padding: "10px",
               }}
             >
-              Learn More{" "}
+              Learn More
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
