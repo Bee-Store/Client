@@ -55,10 +55,10 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to Netlify
-        uses: netlify/actions/cli@v1
-        with:
-          args: deploy --prod
+    #   - name: Deploy to Netlify
+        # uses: netlify/actions/cli@v1
+        # with:
+        #   args: deploy --prod
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
